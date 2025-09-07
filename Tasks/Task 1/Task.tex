@@ -15,7 +15,7 @@
 \begin{document}
 \section{Intuition}
 The task we are given here is to take two modes of transportation, a hoverboard that moves
-3 units east and 1 north, and a magic carpet that movies 2 units east and 1 north.
+3 units east and 1 north, and a magic carpet that movies 1 unit east and 2 north.
 From this we are to determine whether or not some combination of the these two
 modes of transportation will allow us to arrive at old man Guass's house at
 107 units east and 64 miles north of our original position.
@@ -27,7 +27,7 @@ T_C = \begin{bmatrix}
 \end{bmatrix}
 ,
 T_M = \begin{bmatrix}
-2 \\ 1
+1 \\ 2
 \end{bmatrix}
 ,
 T = \begin{bmatrix}
@@ -46,7 +46,7 @@ coefficients ${c_1}$ and ${c_2}$
 \end{bmatrix}
 {c_2}
 \begin{bmatrix}
-2 \\ 1
+1 \\ 2
 \end{bmatrix}
 =
 \begin{bmatrix}
@@ -54,7 +54,7 @@ coefficients ${c_1}$ and ${c_2}$
 \end{bmatrix}
 \]
 \[{c_1}3+{c_2}1=107\]
-\[{c_1}2+{c_2}1=64\]
+\[{c_1}1+{c_2}1=64\]
 So, we can deduce with a little algebra that ${c_1}=30$ and ${c_2}=17$ and that
 \[
 30
@@ -63,7 +63,7 @@ So, we can deduce with a little algebra that ${c_1}=30$ and ${c_2}=17$ and that
 \end{bmatrix}
 17
 \begin{bmatrix}
-2 \\ 1
+1 \\ 2
 \end{bmatrix}
 =
 \begin{bmatrix}
