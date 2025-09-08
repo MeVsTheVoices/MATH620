@@ -88,11 +88,30 @@
             \end{axis}
         \end{tikzpicture}
     \end{minipage}%
+    \subsection{Added together}
+        \begin{tikzpicture}
+            \begin{axis}[
+                width=\linewidth,
+                title={Combined vectors},
+                xmin= -7, xmax=1,
+                ymin=-23, ymax=1
+            ]
+            \addplot[red, smooth, mark=*, -stealth, thick] coordinates {
+                (0,0) (-6,-10)
+            };
+            \addlegendentry{(-6,10)}
+            \addplot[blue, smooth, mark=*, -stealth, thick] coordinates {
+                (-6,-10) (-2, -22)
+            };
+            \addlegendentry{(-6,-10)+(-4,-12)=(-2,-22)}
+            \end{axis}
+        \end{tikzpicture}
     \subsection{Changes}
     As can be seen in the graphs above. The coefficient before each of the column
     matrices can be seen to scale any offset. For example, were we to take negative
     one times a matrix, then the offset would extend as far in the negative directions
-    as a matrix extended in the positives.
+    as a matrix extended in the positives. When we scale them by a multiplier and then add
+    (subtract) from one another.
 \section{Question 2}
     \subsection{Quick reiteration}
     Having found that we were unable to reach old man Gauss's house using only
