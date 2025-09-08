@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{lipsum} % For dummy text
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number
+\lfoot{MATH620}
+\cfoot{Task 2}
+
+\begin{document}
+\section{Intuition}
+Time for a little bit of further digging. We ascertained that we could reach
+old man Guass's house at the given offset, but, is there anywhere where we would
+be unable to reach him? Put another way. What is the span of the two column vectors
+representing the magic carpet and hoverboard?
+\section{Details}
+Examine
+\begin{center}
+$
+span(\begin{bmatrix}3 \\ 1 \end{bmatrix},\begin{bmatrix}1 \\ 2 \end{bmatrix})
+={c_1}\begin{bmatrix}3 \\ 1 \end{bmatrix} + {c_2}\begin{bmatrix}1 \\ 2 \end{bmatrix}
+$
+where $c_1$, $c_2 \in \mathbb{R}$
+\end{center}
+
+We can see that both are linearlly indepent as
+\[det(\begin{bmatrix}3 & 1 \\ 1 & 2\end{bmatrix}) = 5 \ne 0\]
+And from this devise that our two methods of transport do indeed span $\mathbb{R}^2$
+\section{Conclusion}
+As the two columns vectors representing the hoverboard and magic carpet do indeed
+span all of $\mathbb{R}^2$, there is nowhere on the plane that old man Guass can hide.
+We'll always be able to find him with the help of our hoverboard and magic carpet.
+\end{document}
