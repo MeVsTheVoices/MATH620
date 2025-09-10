@@ -281,6 +281,117 @@
             \[0\vec{v_1} + 0\vec{v_2} = \begin{bmatrix}0 \\ 0\end{bmatrix}\]
             This is true regardless of what $\vec{v_1}$ and $\vec{v_2}$ are, as long as they are in $\mathbb{R}^2$.
 
+
+
+
+    \section{Question 6}
+        \subsection{Restating}
+            We want to find one vector $\in \mathbb{R}^3$, that is in the span of
+            $span\{\begin{bmatrix}2 \\ 3 \\ 1\end{bmatrix}, \begin{bmatrix}-4 \\ -6 \\ -2\end{bmatrix}, \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\}$
+            and one that isn't.
+        \paragraph{Noticed}
+            The second vector is simply the first vector scaled by $-2$.
+            This means that the span of these vectors is simply the span of the first and third vectors.
+            \[
+            span\{\begin{bmatrix}2 \\ 3 \\ 1\end{bmatrix}, \begin{bmatrix}-4 \\ -6 \\ -2\end{bmatrix}, \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\}
+            =
+            span\{\begin{bmatrix}2 \\ 3 \\ 1\end{bmatrix}, \begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}\}
+            \]
+        \paragraph{In the span}
+            So, in the span, we can generate using a combination of two scalars
+            \[
+            c_1\begin{bmatrix}2 \\ 3 \\ 1\end{bmatrix} + c_2\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}
+            =
+            \begin{bmatrix}2c_1 \\ 3c_1 + c_2 \\ c_1\end{bmatrix}
+            \]
+            Let $c_1 = 2$ and $ c_2 = 3$.
+            \[
+            2\begin{bmatrix}2 \\ 3 \\ 1\end{bmatrix} + 3\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix} =
+            \begin{bmatrix}4 \\ 12 \\ 2\end{bmatrix}
+            \]
+        \paragraph{Outside of the span}
+            Outside of the span we can be a little devious and just maniupulate what we found before.
+            Examine
+            $
+            \begin{bmatrix}
+            4 \\ 12 \\ 3 
+            \end{bmatrix}
+            +
+            \begin{bmatrix}
+            1 \\ 0 \\ 0
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+            5 \\ 12 \\ 3
+            \end{bmatrix}
+            $
+            This is not in the span. To show this, we can set up a quick system of equations.
+            \[
+            \begin{array}{c}
+            2*c_1 + 0*c_2 = 5 \\
+            3*c_1 + 1*c_2 = 12 \\
+            1*c_1 + 0*c_2 = 3 \\
+            \end{array}
+            \]
+            Taking from this, we can see an obvious problem.
+            From the first and third equations, we can see that $c_1$ cannot be both $2.5$ and $3$.
+            This means that there are no $c_1$ and $c_2$ that satisfy this equation.
+            Therefore, $\begin{bmatrix}5 \\ 12 \\ 3\end{bmatrix}$ is not in the span.
+
+
+
+
+
+    \section{Question 7}
+            \subsection{Trying to find}
+                We're trying to find vectors for each set of conditions.
+                If we think that they might not exist, we can try to explain.
+            \subsection{Questions}
+                \renewcommand{\labelenumi}{\alph{enumi}}
+                    \begin{enumerate}
+                        \item 
+                            A set of three vectors in $\mathbb{R}^2$ that doesn't span $\mathbb{R}^2$
+                            \begin{description}
+                                \item[Answer:] 
+                                    $\left\{\begin{bmatrix}1 \\ 0\end{bmatrix}, \begin{bmatrix}2 \\ 0\end{bmatrix}, \begin{bmatrix}3 \\ 0\end{bmatrix}\right\}$
+                                \item[Explanation:]
+                                    No change no any coefficient will make any subsequent change in the second component.
+                            \end{description}
+                        \item 
+                            A set of three vectors in $\mathbb{R}^2$ that spans $\mathbb{R}^2$
+                            \begin{description}
+                                \item[Answer:] 
+                                    $\left\{\begin{bmatrix}1 \\ 0\end{bmatrix}, \begin{bmatrix}1 \\ 1\end{bmatrix}, \begin{bmatrix}1 \\ 2\end{bmatrix}\right\}$ 
+                                \item[Explanation:]
+                                    If we reduce these against an arbitrary vector $\begin{bmatrix}a \\ b\end{bmatrix}$, we can see that
+                                    \[
+                                    \left[\begin{array}{ccc|c}
+                                    1 & 1 & 1 & a \\
+                                    0 & 1 & 2 & b
+                                    \end{array}\right]
+                                    \xrightarrow{R_1 - R_2 \rightarrow R_1}
+                                    \left[\begin{array}{ccc|c}
+                                    1 & 0 & -1 & a - b \\
+                                    0 & 1 & 2 & b
+                                    \end{array}\right]
+                                    \]
+                                    As we have a pivot in each row we can device that this will span $\mathbb{R}^2$
+                            \end{description}
+                        \item 
+                            A set of three vectors in $\mathbb{R}^2$ that spans $\mathbb{R}^2$ from which you can remove
+                            one vector and still span $\mathbb{R}^2$ with the remaining two.
+                            \begin{description}
+                                \item[Answer:] 
+                                    
+                                \item[Explanation:]
+                                    
+                            \end{description}
+                        \item 
+                            A set of three vectors in $\mathbb{R}^2$ that spans $\mathbb{R}^2$ from which you can remove two
+                            vectors and still span $\mathbb{R}^2$ with the remaining one.
+                    \end{enumerate}
+                        
+                        
 \clearpage
 \bibliography{references}
 \bibliographystyle{plain}
