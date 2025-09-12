@@ -28,7 +28,7 @@
             \renewcommand{\labelenumi}{\alph{enumi}}
             \begin{enumerate}
                 \item
-                    \begin{description}
+                    \begin{description} 
                         \item[Question:]Is there anywhere in $\mathbb{R}^3$ that old man Gauss can hide?
                         \item[Answer:]
                             Maybe, let's do a quick RREF and have a look
@@ -49,11 +49,19 @@
                             \end{array}
                             \end{bmatrix}
                             \]
-                            As we're short a pivot we can be sure of a couple things.
-                            The third row is missing both a pivot, but, as importantly,
-                            it is missing a value in the agumented column.
-                            Given these things together, we can be sure that, one of the vectors is 
-                            linearly dependent on the others, and that there are infinite solutions
+                            We're short a pivot in the bottom row but we do have an entry in the last column.
+                            This means that the system is inconsistent and there is no solution.
+                            So, there is somewhere in $\mathbb{R}^3$ that old man Gauss can hide.
+                            We can also see that the vectors are linearly dependent.
+                            \[
+                            2\begin{bmatrix}1\\1\\1\end{bmatrix}
+                            +
+                            \begin{bmatrix}4\\1\\6\end{bmatrix}
+                            =
+                            \begin{bmatrix}6\\3\\8\end{bmatrix} 
+                            =
+                            \mathbf{v}_2
+                            \]
                     \end{description}
             \end{enumerate}
             \section{Question 2}
