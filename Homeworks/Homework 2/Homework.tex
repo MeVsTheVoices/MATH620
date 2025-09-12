@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{pgfplots} % for graphs
+\usepackage{hyperref} % for hyperlinks
+\pgfplotsset{compat=1.18}
+
+\usepackage{lipsum} % For dummy text
+\usepackage{cite} % For citations
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number
+\lfoot{MATH620}
+\cfoot{Homework 2}
+
+\begin{document}
+    \section{Question 1}
+        \subsection{Givens}
+            \paragraph{Modes of transport}
+                $\mathbf{v}_1=\begin{bmatrix}1\\1\\1\end{bmatrix}$
+                $\mathbf{v}_2=\begin{bmatrix}6\\3\\8\end{bmatrix}$
+                $\mathbf{v}_3=\begin{bmatrix}4\\1\\6\end{bmatrix}$
+        \subsection{Questions}
+            \renewcommand{\labelenumi}{\alph{enumi}}
+            \begin{enumerate}
+                \item
+                    \begin{description}
+                        \item[Question:]Is there anywhere in $\mathbb{R}^3$ that old man Gauss can hide?
+                        \item[Answer:]
+                            Maybe, let's do a quick RREF and have a look
+                            \[
+                            \begin{bmatrix}
+                            \begin{array}{ccc|c}
+                                1 & 6 &  4 & x \\
+                                0 & 3 &  8 & y \\
+                                4 & 1 &  6 & z
+                            \end{array}
+                            \end{bmatrix}
+                            \rightarrow
+                            \begin{bmatrix}
+                            \begin{array}{ccc|c}
+                                1 & 0 & -2 & 0 \\
+                                0 & 1 &  1 & 0 \\
+                                0 & 0 &  0 & 1
+                            \end{array}
+                            \end{bmatrix}
+                            \]
+                            As we're short a pivot we can be sure of a couple things.
+                            The third row is missing both a pivot, but, as importantly,
+                            it is missing a value in the agumented column.
+                            Given these things together, we can be sure that, one of the vectors is 
+                            linearly dependent on the others, and that there are infinite solutions
+                    \end{description}
+            \end{enumerate}
+            \section{Question 2}
+                \subsection{Givens}
+                    \paragraph{Suppose}
+                        \[
+                        \mathbf{v_1}=\begin{bmatrix}1\\-1\\2\end{bmatrix}
+                        \mathbf{v_2}=\begin{bmatrix}-1\\2\\3\end{bmatrix}
+                        \mathbf{v_3}=\begin{bmatrix}2\\3\\h\end{bmatrix}
+                        \]
+                \subsection{Question}
+                    \begin{description}
+                        \item[Question:]
+                            For what values of $h$ are the vectors 
+                            $\mathbf{v_1}$, $\mathbf{v_2}$, and $\mathbf{v_3}$ 
+                            linearly dependent?
+                        \item[Answer:]
+                            We can do this with the determinant this time around. The system
+                            should result in a determinant that is $0$.
+                            \[
+                            det(
+                                \begin{bmatrix}
+                                    1 & -1 & 2 \\
+                                    -1 & 2 & 3 \\
+                                    2 & 3 & h
+                                \end{bmatrix}
+                            )
+                            =0
+                            \]
+                            \[
+                            1(2h-9)+1(-h-6)+2(-3-4)=0
+                            \]
+                            \[
+                            2h-9-h-6-6-8=0
+                            \]
+                            \[
+                            h-29=0
+                            \]
+                            \[
+                            h=29
+                            \]
+                        \item[Check:]
+                            So, given a value of $h=29$ we can check our work by calculating
+                            \[
+                            \mathbf{v_1}=\begin{bmatrix}1\\-1\\2\end{bmatrix}
+                            \mathbf{v_2}=\begin{bmatrix}-1\\2\\3\end{bmatrix}
+                            \mathbf{v_3}=\begin{bmatrix}2\\3\\29\end{bmatrix}
+                            \]
+                            \[
+                            \begin{bmatrix}
+                            \begin{array}{ccc|c}
+                                1  & -1 & 2 & x \\
+                                -1 & 2  & 3 & y \\
+                                2  & 3  & 29 & z
+                            \end{array}
+                            \end{bmatrix}
+                            \rightarrow
+                            \begin{bmatrix}
+                            \begin{array}{ccc|c}
+                                1 & 0 & 7 & 0 \\
+                                0 & 1 & 1 & 0 \\
+                                0 & 0 & 0 & 1
+                            \end{array}
+                            \end{bmatrix}
+                            \]
+                            As we have a row of all zeros, we can be sure that the vectors are linearly dependent.
+
+                    \end{description}
+\end{document}
