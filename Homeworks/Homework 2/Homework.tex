@@ -170,4 +170,24 @@
             \end{enumerate}
         \subsection{Question}
             Choose two and write a reasonable explanation/proof.
+        \subsection{Answers}
+            \paragraph{Is a set containing two scalar multiples dependent?}
+                Yes. If we have two vectors $\mathbf{v_1}$ and $\mathbf{v_2}$
+                such that $\mathbf{v_2} = k\mathbf{v_1}$ for some $k \in \mathbb{R} \setminus \{0\}$.
+                Then we can write
+                \[
+                k\mathbf{v_1} - \mathbf{v_2} = \mathbf{0}
+                \]
+                As we've expressed that atleast one vector is a scalar multiple
+                of another, the set is linearly dependent.
+            \paragraph{A set containing the zero vector is dependent?}
+                Yes. If we have a set of vectors $\{\mathbf{v_1}, \mathbf{v_2}, \ldots, \mathbf{v_n}\}$
+                and one of those vectors is the zero vector, say $\mathbf{v_1} = \mathbf{0}$.
+                Then we can write
+                \[
+                1\cdot\mathbf{0} + 0\cdot\mathbf{v_2} + \ldots + 0\cdot\mathbf{v_n} = \mathbf{0}
+                \]
+                As we've expressed that one of the vectors is a linear combination
+                of the others, the set is linearly dependent.
+
 \end{document}
