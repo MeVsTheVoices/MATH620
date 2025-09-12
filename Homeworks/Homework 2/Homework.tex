@@ -64,70 +64,85 @@
                             \]
                     \end{description}
             \end{enumerate}
-            \section{Question 2}
-                \subsection{Givens}
-                    \paragraph{Suppose}
-                        \[
-                        \mathbf{v_1}=\begin{bmatrix}1\\-1\\2\end{bmatrix}
-                        \mathbf{v_2}=\begin{bmatrix}-1\\2\\3\end{bmatrix}
-                        \mathbf{v_3}=\begin{bmatrix}2\\3\\h\end{bmatrix}
-                        \]
-                \subsection{Question}
-                    \begin{description}
-                        \item[Question:]
-                            For what values of $h$ are the vectors 
-                            $\mathbf{v_1}$, $\mathbf{v_2}$, and $\mathbf{v_3}$ 
-                            linearly dependent?
-                        \item[Answer:]
-                            We can do this with the determinant this time around. The system
-                            should result in a determinant that is $0$.
-                            \[
-                            det(
-                                \begin{bmatrix}
-                                    1 & -1 & 2 \\
-                                    -1 & 2 & 3 \\
-                                    2 & 3 & h
-                                \end{bmatrix}
-                            )
-                            =0
-                            \]
-                            \[
-                            1(2h-9)+1(-h-6)+2(-3-4)=0
-                            \]
-                            \[
-                            2h-9-h-6-6-8=0
-                            \]
-                            \[
-                            h-29=0
-                            \]
-                            \[
-                            h=29
-                            \]
-                        \item[Check:]
-                            So, given a value of $h=29$ we can check our work by calculating
-                            \[
-                            \mathbf{v_1}=\begin{bmatrix}1\\-1\\2\end{bmatrix}
-                            \mathbf{v_2}=\begin{bmatrix}-1\\2\\3\end{bmatrix}
-                            \mathbf{v_3}=\begin{bmatrix}2\\3\\29\end{bmatrix}
-                            \]
-                            \[
-                            \begin{bmatrix}
-                            \begin{array}{ccc|c}
-                                1  & -1 & 2 & x \\
-                                -1 & 2  & 3 & y \\
-                                2  & 3  & 29 & z
-                            \end{array}
-                            \end{bmatrix}
-                            \rightarrow
-                            \begin{bmatrix}
-                            \begin{array}{ccc|c}
-                                1 & 0 & 7 & 0 \\
-                                0 & 1 & 1 & 0 \\
-                                0 & 0 & 0 & 1
-                            \end{array}
-                            \end{bmatrix}
-                            \]
-                            As we have a row of all zeros, we can be sure that the vectors are linearly dependent.
+    \section{Question 2}
+        \subsection{Givens}
+            \paragraph{Suppose}
+                \[
+                \mathbf{v_1}=\begin{bmatrix}1\\-1\\2\end{bmatrix}
+                \mathbf{v_2}=\begin{bmatrix}-1\\2\\3\end{bmatrix}
+                \mathbf{v_3}=\begin{bmatrix}2\\3\\h\end{bmatrix}
+                \]
+        \subsection{Question}
+            \begin{description}
+                \item[Question:]
+                    For what values of $h$ are the vectors 
+                    $\mathbf{v_1}$, $\mathbf{v_2}$, and $\mathbf{v_3}$ 
+                    linearly dependent?
+                \item[Answer:]
+                    We can do this with the determinant this time around. The system
+                    should result in a determinant that is $0$.
+                    \[
+                    det(
+                        \begin{bmatrix}
+                            1 & -1 & 2 \\
+                            -1 & 2 & 3 \\
+                            2 & 3 & h
+                        \end{bmatrix}
+                    )
+                    =0
+                    \]
+                    \[
+                    1(2h-9)+1(-h-6)+2(-3-4)=0
+                    \]
+                    \[
+                    2h-9-h-6-6-8=0
+                    \]
+                    \[
+                    h-29=0
+                    \]
+                    \[
+                    h=29
+                    \]
+                \item[Check:]
+                    So, given a value of $h=29$ we can check our work by calculating
+                    \[
+                    \mathbf{v_1}=\begin{bmatrix}1\\-1\\2\end{bmatrix}
+                    \mathbf{v_2}=\begin{bmatrix}-1\\2\\3\end{bmatrix}
+                    \mathbf{v_3}=\begin{bmatrix}2\\3\\29\end{bmatrix}
+                    \]
+                    \[
+                    \begin{bmatrix}
+                    \begin{array}{ccc|c}
+                        1  & -1 & 2 & x \\
+                        -1 & 2  & 3 & y \\
+                        2  & 3  & 29 & z
+                    \end{array}
+                    \end{bmatrix}
+                    \rightarrow
+                    \begin{bmatrix}
+                    \begin{array}{ccc|c}
+                        1 & 0 & 7 & 0 \\
+                        0 & 1 & 1 & 0 \\
+                        0 & 0 & 0 & 1
+                    \end{array}
+                    \end{bmatrix}
+                    \]
+                    As we have a row of all zeros, we can be sure that the vectors are linearly dependent.
 
-                    \end{description}
+            \end{description}
+    \section{Question 3}
+        \subsection{Question}
+            We're asked whether given $\{\mathbf{x}, \mathbf{y}\}$ as linearly independent.
+            And given $\{\mathbf{x}, \mathbf{y}, \mathbf{z}\}$ as linearly dependent.
+            Is $\mathbf{z}$ in the span of $\{\mathbf{x}, \mathbf{y}\}$?
+            If false, give a counterexample.
+        \subsection{Answer}
+            Yes. For $\{\mathbf{x}, \mathbf{y}, \mathbf{z}\}$ to be linearly dependent,
+            one of the vectors must be a linear combination of the others.
+            That is, we could write $\mathbf{z}$ as $\mathbf{z} = a\mathbf{x} + b\mathbf{y}$
+            for some $a$, $b \in \mathbb{R}$.
+            This is another way of saying that $\mathbf{z}$ is in the span of $\{\mathbf{x}, \mathbf{y}\}$.
+            So, if $\{\mathbf{x}, \mathbf{y}\}$ is linearly independent
+            and $\{\mathbf{x}, \mathbf{y}, \mathbf{z}\}$ is linearly dependent,
+            then $\mathbf{z}$ is in the span of $\{\mathbf{x}, \mathbf{y}\}$.
 \end{document}
