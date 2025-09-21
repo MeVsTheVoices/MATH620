@@ -20,4 +20,32 @@
 
 \begin{document}
     \section{Question 1}
+        \paragraph{Given} 
+            \begin{center}
+                Given
+                $\vec{v_3} = \begin{bmatrix}1\\2\\3\\4\end{bmatrix}$
+                is 
+                $\vec{v_3} \in \text{span}\{\vec{v_1}, \vec{v_2}\}$?
+            \end{center}
+            \begin{center}
+                where
+                $\vec{v_1} = \begin{bmatrix}1\\1\\-1\\1\end{bmatrix}$ and
+                $\vec{v_2} = \begin{bmatrix}1\\-1\\1\\0\end{bmatrix}$.
+            \end{center}
+        \paragraph{Solution}
+           We're given thast we can consider these vectors as
+            \[
+                A = \begin{bmatrix}1 & 1\\-1 & 1\end{bmatrix},
+                B = \begin{bmatrix}1 & -1\\1 & 0\end{bmatrix},
+                C = \begin{bmatrix}1 & 2\\3 & 4\end{bmatrix}
+            \]
+            We're still asking the same question,
+            so let's see how that breaks down
+            \[
+                c_1\begin{bmatrix}1 & 1\\-1 & 1\end{bmatrix} +
+                c_2\begin{bmatrix}1 & -1\\1 & 0\end{bmatrix} =
+                \begin{bmatrix}1 & 2\\3 & 4\end{bmatrix}
+            \]
+
+                
 \end{document}
