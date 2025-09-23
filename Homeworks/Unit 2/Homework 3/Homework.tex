@@ -162,7 +162,7 @@
                     \[
                     \begin{bmatrix}
                     \begin{array}{ccc|c}
-                        1 &  0 &  -2 & 1 \\
+                        1 &  0 &  0 & 1 \\
                         0 &  1 &  0 & -1/2 \\
                         0 &  0 &  1 & 5/2
                     \end{array}
@@ -179,4 +179,48 @@
                         \end{bmatrix}
                     \]
                     Hence, a unique solution.
+    \section{Question 4}
+        \subsection{Question}
+            We're going to take a augmented matrix and put it in vector format
+            \[
+            \begin{bmatrix}
+            \begin{array}{ccc|c}
+                1 &  0 &   2 & 3 \\
+                0 &  1 &  -1 & 4 \\
+                0 &  0 &   0 & 0
+            \end{array}
+            \end{bmatrix}
+            \]
+        \subsection{Answer}
+            \paragraph{Step 1}
+                We can express this as a system of equations
+                \begin{align*}
+                    x_1 + 2x_3 &= 3\\
+                    x_2 - x_3 &= 4
+                \end{align*}
+            \paragraph{Step 2}
+                Rearrange
+                \begin{align*}
+                    x_1 &= 3 - 2x_3\\
+                    x_2 &= 4 + x_3\\
+                    x_3 &= x_3
+                \end{align*}
+            \paragraph{Step 3}
+                Then express as a vector as a sum of vectors
+                \[
+                \vec{x} 
+                = 
+                \begin{bmatrix}
+                    3\\
+                    4\\
+                    0
+                \end{bmatrix}
+                +
+                x_3
+                \begin{bmatrix}
+                    -2\\
+                    1\\
+                    1
+                \end{bmatrix}
+                \]
 \end{document}
