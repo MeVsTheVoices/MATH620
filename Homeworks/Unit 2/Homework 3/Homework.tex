@@ -104,4 +104,79 @@
                 So. Yes. We can use these coefficients
                 to express $\mathbf{v}_4$ as a linear combination
                 of $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$.
+    \section{Question 3}
+        \subsection{Question}
+            Using RREF. How would you determine whether a system of linear equations
+            is consistent, inconsistent, or has infinite solutions?
+        \subsection{Answer}
+            Been looking forwards to this one. Was one of the first things I had to spend
+            a moment clarifying for myself.
+            \paragraph{Inconsistent}
+                This one's the easiest.
+                If the system that I produce in anyway leads to a contradiction,
+                then the system is inconsistent. Too. If there is no solution
+                to a row in the RREF form, then the system is inconsistent.
+                \subparagraph{Example}
+                    \[
+                    \begin{bmatrix}
+                    \begin{array}{ccc|c}
+                        1 &  0 &  -2 & 1 \\
+                        0 &  1 &  0 & -1/2 \\
+                        0 &  0 &  0 & 5
+                    \end{array}
+                    \end{bmatrix}
+                    \]
+                    Here we're lead to the conclusion that $0=5$,
+                    which is clearly a contradiction.
+                \subparagraph{Heuristic}
+                    If you have a row of all zeros on the left side
+                    and a non-zero value on the right side, then
+                    the system is inconsistent.
+            \paragraph{Consistent}
+                We can just be lazy and say that consistency is the absense
+                of a contradiction. We can subtype this into two categories,
+                unique solutions and infinite solutions.
+                \subparagraph{Infinite}
+                    \[
+                    \begin{bmatrix}
+                    \begin{array}{ccc|c}
+                        1 &  0 &  -2 & 1 \\
+                        0 &  1 &  0 & -1/2 \\
+                        0 &  0 &  0 & 0
+                    \end{array}
+                    \end{bmatrix}
+                    \]
+                    Here we can see that there is a free variable,
+                    which means that there are infinite solutions.
+                    We could express the solution set as
+                    \[
+                        \begin{bmatrix}
+                            1 + 2t\\
+                            -1/2\\
+                            t
+                        \end{bmatrix}
+                        \text{ for any } t \in \mathbb{R}
+                    \]
+                    Hence, infinite solutions.
+                \subparagraph{Unique}
+                    \[
+                    \begin{bmatrix}
+                    \begin{array}{ccc|c}
+                        1 &  0 &  -2 & 1 \\
+                        0 &  1 &  0 & -1/2 \\
+                        0 &  0 &  1 & 5/2
+                    \end{array}
+                    \end{bmatrix}
+                    \]
+                    Here we can see that there is a unique solution.
+                    Way more boring.
+                    We can express the solution set as
+                    \[
+                        \begin{bmatrix}
+                            1\\
+                            -1/2\\
+                            5/2
+                        \end{bmatrix}
+                    \]
+                    Hence, a unique solution.
 \end{document}
