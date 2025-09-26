@@ -13,6 +13,17 @@
 \pagestyle{fancy}  
 \fancyhf{} % Clear all header and footer fields
 
+\usepackage{tcolorbox} % Required for tcolorbox
+
+\newtcolorbox{solutioncheck}{
+    colback=green!10, % Background color
+    colframe=gray!50, % Frame color
+    boxsep=5pt, % Padding
+    arc=4pt, % Rounded corners
+    title=Checking solution, % Optional title for the aside
+    fonttitle=\bfseries, % Title font style
+} % for Asides
+
 \lhead{Joshua Dunne}
 \rhead{\thepage} % Displays the current page number 
 \lfoot{MATH620}
@@ -49,7 +60,7 @@
                 \item 
                     $T(\mathbf{v}) = A\mathbf{v} = \begin{bmatrix}3 & 0\\0 & -2\end{bmatrix}\begin{bmatrix}0\\1.5\end{bmatrix} = \begin{bmatrix}0\\-3\end{bmatrix}$
                 \item 
-                    $T(\mathbf{u}+\mathbf{v}) = A(\mathbf{u}+\mathbf{v}) = \begin{bmatrix}3 & 0\\0 & -2\end{bmatrix}\begin{bmatrix}0\\1.5\end{bmatrix} = \begin{bmatrix}0\\-3\end{bmatrix}$
+                    $T(\mathbf{u}+\mathbf{v}) = A(\mathbf{u}+\mathbf{v}) = \begin{bmatrix}3 & 0\\0 & -2\end{bmatrix}\begin{bmatrix}0\\1.5\end{bmatrix} = \begin{bmatrix}9\\-1\end{bmatrix}$
             \end{enumerate}
     \newpage
     \subsection{Illustration}
@@ -108,9 +119,54 @@
                 A = \begin{bmatrix} 1 & -5 & -7 \\ -3 & 7 & 5 \end{bmatrix}
             $$
             Define the linear transformation $T: \mathbb{R}^3 \rightarrow \mathbb{R}^2$ by $T(\mathbf{x}) = A\mathbf{x}$.
-        \subsection{Questions}
+        \subsection{Prompts}
             \begin{enumerate}[label=(\alph*)]
-                \item Find the image under T of $\mathbf{u}=\begin{bmatrix}2\\1\\-1\end{bmatrix}$
-            \end{enumerate}
+                \item 
+                    Find the image under T of $\mathbf{u}=\begin{bmatrix}2\\1\\-1\end{bmatrix}$
+                    So. We have a 2x3 and we're multiplying by a 3x1. The result is going to be a 2x1
+                    \begin{solutioncheck}
+                        \[
+                        \begin{bmatrix} 1 & -5 & -7 \\ -3 & 7 & 5 \end{bmatrix}
+                        \begin{bmatrix}2\\1\\-1\end{bmatrix}
+                        =
+                        \begin{bmatrix}4\\-4\end{bmatrix}
+                        \]
+                    \end{solutioncheck}
+                \item
+                    Find a vector $\mathbf{x}$ whose image under
+                    T is $\mathbf{b}=\begin{bmatrix}-12\\12\end{bmatrix}$
+                    \paragraph{Thinking}
+                        We can se up the system of equations so that we're solving for this.
+                        As long as the solution $y\in\text{span}\{\mathbf{u},\mathbf{v}\}$
+                    \paragraph{Solution}
+                        \[
+                        \begin{bmatrix} 1 & -5 & -7 \\ -3 & 7 & 5 \end{bmatrix}
+                        \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+                        =
+                        \begin{bmatrix}-12\\12\end{bmatrix}
+                        \]
+                        \begin{align*}
+                            x_1 - 5x_2 - 7x_3 &= -12 \\
+                            -3x_1 + 7x_2 + 5x_3 &= 12
+                        \end{align*}
+                        \begin{align*}
+                            x_1 + 3x_3 &= 3 \\
+                            x_2 + 2x_3 &= 3
+                        \end{align*}
+                        \subparagraph{Particular solution}
+                            Let $x_3=0$ then $x_1=3$ and $x_2=3$.
+                        \begin{solutioncheck}
+                            \[
+                            \begin{bmatrix} 1 & -5 & -7 \\ -3 & 7 & 5 \end{bmatrix}
+                            \begin{bmatrix}3\\3\\0\end{bmatrix}
+                            =
+                            \begin{bmatrix}-12\\12\end{bmatrix}
+                            \]
+                        \end{solutioncheck}
+
+
+
+            \end{enumerate}   
+
  
 \end{document}
