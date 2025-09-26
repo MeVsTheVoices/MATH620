@@ -46,6 +46,51 @@
             \item 
                 $T(\mathbf{u}+\mathbf{v}) = A(\mathbf{u}+\mathbf{v}) = \begin{bmatrix}3 & 0\\0 & -2\end{bmatrix}\begin{bmatrix}0\\1.5\end{bmatrix} = \begin{bmatrix}0\\-3\end{bmatrix}$
         \end{enumerate}
+    \subsection{Illustration}
+        \begin{figure}[h!]
+            \begin{center}
+            \begin{minipage}[b]{0.4\textwidth}
+                
+
+            \begin{tikzpicture}[
+                    every node/.style={font=\tiny},
+                    scale=0.8 % Adjusted scale to fit a reasonable paper size, you can change this
+                ]
+                
+                \draw[step=1.0, gray, very thin] (-1, -2) grid (5, 3);
+                \node[below right] at (0,0) {$(0,0)$};
+                \draw[very thick]
+                    (0, 0) -- (3, -1) node[above right] {$\mathbf{u}$};
+                    (0, 0) -- (0, 1.5) node[above right] {$\mathbf{v}$};
+                    (0, 0) -- (3, .5) node[above right] {$\mathbf{u}+\mathbf{v}$};
+                ;
+            \end{tikzpicture}
+
+            
+            \end{minipage}
+            \hspace{0.5cm}
+            \begin{minipage}[b]{0.44\textwidth}
+                
+
+            \begin{tikzpicture}[
+                    every node/.style={font=\tiny},
+                    scale=0.8 % Adjusted scale to fit a reasonable paper size, you can change this
+                ]
+                
+                \draw[step=1.0, gray, very thin] (-1, -2) grid (5, 3);
+                \node[below right] at (0,0) {$(0,0)$};
+                \draw[very thick]
+                    (0, 0) -- (3, -1) node[above right] {$\mathbf{u}$};
+                    (0, 0) -- (0, 1.5) node[above right] {$\mathbf{v}$};
+                    (0, 0) -- (3, .5) node[above right] {$\mathbf{u}+\mathbf{v}$};
+                ;
+            \end{tikzpicture}
+
+            
+            \end{minipage}
+            \end{center}
+        \end{figure}
+
 
 
 
