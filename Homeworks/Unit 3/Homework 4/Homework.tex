@@ -211,4 +211,51 @@
                 Since the additivity property does not hold, $T$ is not a linear transformation.
                 We could go through the trouble to double check the other condition, but,
                 there's no need.
+    \section{Question 4}
+        \subsection{Restated}
+            Given $AB$ is defined with $B$ having linearly
+            dependent columns. Are the columns of $AB$
+            linearly independent? If not, counterexample.
+        \subsection{Slow}
+            Let's take our time with this one. It doesn't give us as far as
+            much to work with as have some of the others previously.
+            \paragraph{Given}
+                So. The columns of $B$ are linearly dependent.
+                We know a few things because of this that are worth listing here before further investigation
+                \begin{enumerate}
+                    \item We know that we will have a free variable
+                    \item That one of the columns can be expressed as a linear combination of the others
+                    \item $B\mathbf{x} = \mathbf{0}$ will have a nontrivial solution
+                \end{enumerate}
+                    From this we can state that there exists a non-zero vector $\mathbf{x}$ such that $B\mathbf{x} = \mathbf{0}$. 
+                    This means that at least one column of $B$ can be written as a linear combination of the other columns.
+            \paragraph{Deduction}
+                \begin{gather*}
+                    B\mathbf{x}=\mathbf{0}\text{ for some }\mathbf{x} \\
+                    AB\mathbf{x}=(AB)\mathbf{x}=A(B\mathbf{x}) \\
+                    A(B\mathbf{x})=A\mathbf{0}=\mathbf{0} 
+                \end{gather*}
+                So. There exists an $\mathbf{x}$ such that when
+                $\mathbf{x}$ is applied to $B$ we get the zero vector. Then, when we apply $A$ to that zero vector, we still get the zero vector.
+                This means that $(AB)\mathbf{x} = \mathbf{0}$ has a non-trivial solution (the same $\mathbf{x}$ that makes $B\mathbf{x}=\mathbf{0}$).
+                Therefore, the columns of $AB$ are linearly dependent.
+
+            \paragraph{Arr. Thar be a counterexample}
+                We could do this backwards as was done above. Find an $\mathbf{x}$
+                such that $B\mathbf{x} = \mathbf{0}$. Then we'd easily find a nontrivial
+                solution for $AB\mathbf{x}=\mathbf{0}$ 
+                \subparagraph{Sounds like alot of work}
+                    That sounds like it might take more than a single step, so\dots
+                    let's just guess and hope for the best.
+                \subparagraph{A guess}
+                    Let $A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$ and $B = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}$.
+                    The columns of $B$ are linearly dependent because the second column is twice the first column.
+                    Specifically, if $\mathbf{x} = \begin{bmatrix} 2 \\ -1 \end{bmatrix}$, then $B\mathbf{x} = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix} \begin{bmatrix} 2 \\ -1 \end{bmatrix} = \begin{bmatrix} 2-2 \\ 4-4 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$.
+                    Now, let's compute $AB$:
+                    \[
+                        AB = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix} = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix}
+                    \]
+                    The columns of $AB$ are $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$ and $\begin{bmatrix} 2 \\ 4 \end{bmatrix}$. These columns are linearly dependent, as the second column is twice the first.
+                    And, as expected, $(AB)\mathbf{x} = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix} \begin{bmatrix} 2 \\ -1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, which is a non-trivial solution.
+
 \end{document}
