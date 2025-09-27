@@ -257,5 +257,86 @@
                     \]
                     The columns of $AB$ are $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$ and $\begin{bmatrix} 2 \\ 4 \end{bmatrix}$. These columns are linearly dependent, as the second column is twice the first.
                     And, as expected, $(AB)\mathbf{x} = \begin{bmatrix} 1 & 2 \\ 2 & 4 \end{bmatrix} \begin{bmatrix} 2 \\ -1 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$, which is a non-trivial solution.
+    \section{Question 5}
+        We're being asked to tell whether a given transformation
+        could have been produced with alinear transformation
 
+        \begin{center}   
+        \begin{tikzpicture}[
+                every node/.style={font=\tiny},
+                scale=0.4 % Adjusted scale to fit a reasonable paper size, you can change this
+            ]
+
+            \draw[step=1.0, gray, very thin] (-2, -1) grid (9, 6);
+
+            \node[below left] at (0,0) {$(0,0)$};
+            
+            \draw[very thick]
+                % Bottom-Left E
+                (0, 0) -- (0, 3) -- (2, 0) -- (2, 3);
+            \draw[very thick, red]
+                % Bottom-Left E
+                (5, 2) -- (5, 5) -- (7, 2) -- (7, 5);
+                
+            \node[below left] at (5,0) {$(0,0)$};
+
+        \end{tikzpicture}
+        \end{center}
+        \subsection{Recent}
+            If we look to recent examples we see that this can't work.
+            As we saw in the previous problem, 
+            a linear transformation must map the zero vector to the zero vector. 
+            In this case, the origin $(0,0)$ in the first figure is mapped to $(5,2)$ in the second figure. 
+            Since $T(\mathbf{0}) \neq \mathbf{0}$, this transformation cannot be a linear transformation.
+    \section{Question 6}
+        Lastly, we're going to apply a transformation 
+        $C=\begin{bmatrix}2&0\\0&-1.5\end{bmatrix}$
+        to\dots a diagram consisting of 10 points this time.
+        \paragraph{Aggregating}
+            Let's build a long rowed vector like for Unit 3 Task 2.
+            \[
+                \begin{bmatrix}2&0\\0&-1.5\end{bmatrix}
+                \begin{bmatrix}
+                    -2&2&2&-2&-1&1&-1&1&-1&1 \\
+                    2&2&-2&-2&1&1&-1&-1&-1.5&-1.5
+                \end{bmatrix}
+            \]
+            So, a 2x2 matrix and a 2x10. We get a 2x10 matrix.
+            \[
+                \begin{bmatrix}
+                    -4&4&4&-4&-2&2&-2&2&-2&2 \\
+                    -3&-3&3&3&-1.5&-1.5&1.5&1.5&2.25&2.25
+                \end{bmatrix}
+            \]
+            Where we'd take ordered pairs of form
+            \[
+                (a_{1,0}, a_{2,0}), (a_{1,1}, a_{2,1}), \dots, (a_{1,9}, a_{2,9})
+            \]
+        \subsection{Plotting a plotting}
+                With all this we can reuse some old latex and slap things in a graph
+                \begin{center}   
+            \begin{tikzpicture}[
+                every node/.style={font=\tiny},
+                scale=0.4% Adjusted scale to fit a reasonable paper size, you can change this
+            ]
+
+                \draw[step=1.0, gray, very thin] (-5, -5) grid (15, 5);
+
+                \node[below right] at (0,0) {$(0,0)$};
+                
+                \draw[very thick]
+                    (-2,2)--(2,2)--(2,-2)--(-2,-2)--(-2,2)
+                    (-1,1)--(1,1)--(-1,-1)--(1,-1)
+                    (-1,-1.5)--(1,-1.5);
+
+                \node[above right] at (8,0) {$(0,0)$};
+
+
+                \draw[very thick, red]
+                    (4,-3)--(12,-3)--(12,3)--(4,3)--(4,-3)
+                    (6,-1.5)--(10,-1.5)--(6,1.5)--(10,1.5)
+                    (6,2.25)--(10,2.25);
+
+            \end{tikzpicture}
+            \end{center}
 \end{document}
