@@ -190,7 +190,7 @@
       \begin{tabular}{ccc}
         $A=\begin{bmatrix}5&8\\-2&3\end{bmatrix}$
          & $B=\begin{bmatrix}5\alpha&8\\-2\alpha&3\end{bmatrix}$
-         & $C=\begin{bmatrix}6\alpha&8\alpha\\-2\alpha&3\end{bmatrix}$
+         & $C=\begin{bmatrix}6\alpha&8\alpha\\-2\alpha&3\alpha\end{bmatrix}$
         \\[0.5cm]
         $\bar{A}=\begin{bmatrix}3&5&1\\-2&4&7\\1&2&8\end{bmatrix}$
          & $\bar{B}=\begin{bmatrix}3\alpha&5&1\\-2\alpha&4&7\\\alpha&2&8\end{bmatrix}$
@@ -211,8 +211,8 @@
             \end{align*}
       \item Find $det(C)$ and $det(\bar{C})$
             \begin{align*}
-              det(C)&=(5\alpha)(3)-(-2\alpha)(8)=15\alpha+16\alpha=31\alpha \\
-              det(\bar{C})&=\alpha^{2}[(-4-4)-5(-16-7)+3(32)(14)]=16\alpha^{2}
+              det(C)&=(5\alpha)(3\alpha)-(-2\alpha)(8\alpha)=15\alpha^2+16\alpha^2=31\alpha^2 \\
+              det(\bar{C})&=\alpha^{2}[(-4-4)-5(-16-7)+3(32)(14)]=16\alpha^{3}
             \end{align*}
       \item \textbf{Hypothesize}
             \newline
@@ -222,7 +222,7 @@
             \end{center}
             If $C=A$ by multiplying every element of $A$ by a scalar $k$ then
             \begin{center}
-              $det(C)=k^2\,det(A)$.
+              $det(C)=k^n\,det(A)$.
             \end{center}
 
     \end{enumerate}
