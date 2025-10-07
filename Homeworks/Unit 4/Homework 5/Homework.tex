@@ -54,7 +54,7 @@
                         \[det(B')=(-2)(3)-(5)(-7)=-6+35=29\]
                       When we transpose the columns it seems like we're flipping the sign on the determinant.
                       This is easy to double check so, let's have a look before moving on
-                        \[det(A)=det(\begin{bmatrix}a&b\\c&d\end{bmatrix})=ad-bc=-det(A')=-det(\begin{bmatrix}b&a\\d&c\end{bmatrix})=-(ad-bc)\]
+                        \[det(A)=det\left(\begin{bmatrix}a&b\\c&d\end{bmatrix}\right)=ad-bc=-det(A')=-det(\begin{bmatrix}b&a\\d&c\end{bmatrix})=-(ad-bc)\]
                       The intuition holds, atleast for a 2x2 matrix.
                 \item Create new matrices by interchanging rows. Find the determinant. 
                         \[A''=\begin{bmatrix}1&3\\6&-2\end{bmatrix},\enspace B''=\begin{bmatrix}3&-7\\5&-2\end{bmatrix}\]
@@ -167,8 +167,11 @@
           Looking now at $D$ we can see something even more obvious.
           Even though this still simply follows from rows being linear multiples, it'd
           \begin{align*}
-            det(D)&=3(18-32)-2(-2)(48)+(1)(-4)(54)=0
+            det(D)&=(0)(10+9)-\dots=0
           \end{align*}
         \subparagraph{Property}
-          
+          If we have a row of all zero's we will have a determinant of 0.
+          I could flesh this out, but, we can easily brain check quickly as,
+          while taking the determinant, no matter which row for a 2x2 or 3x3,
+          one of the terms we're multiplying by will be 0 for each term.
 \end{document}
