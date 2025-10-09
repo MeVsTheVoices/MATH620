@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{pgfplots} % for graphs
+\usepackage{hyperref} % for hyperlinks
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem} % for custom lists
+
+\usepackage{tikz}
+\usepackage[svgnames]{xcolor}
+
+\usepackage{lipsum} % For dummy text
+\usepackage{cite} % For citations
+
+\pagestyle{fancy}  
+\fancyhf{} % Clear all header and footer fields
+
+\usepackage{tcolorbox} % Required for tcolorbox
+
+\newtcolorbox{solutioncheck}{
+    colback=green!10, % Background color
+    colframe=gray!50, % Frame color
+    boxsep=5pt, % Padding
+    arc=4pt, % Rounded corners
+    title=Checking solution, % Optional title for the aside
+    fonttitle=\bfseries, % Title font style
+} % for Asides
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number 
+\lfoot{MATH620}
+\rfoot{Unit 4}
+\cfoot{Homework 5}
+
+\begin{document}
+    \section{Question 1}
+        \paragraph{Determine}
+            Examine the transformations below and Determine
+            whether they are linear. Justify this by the
+            definition as given in class, showing that it does
+            indeed hold, or showing where on which condition things
+            break down.
+        \subsection{Part a}
+            $T: \mathbb{R}^n\rightarrow \mathbb{R}^n$
+            by
+            $T(\mathbf{x})=a\mathbf{x}+\mathbf{b}\quad \forall{b}\in{\mathbf{R}^{n\times n}}$
+            \paragraph{Checking homogeneity}
+                \subparagraph{Left hand side}
+                    $T(c\mathbf{x})=\mathbf{a} (c \mathbf{x})+\mathbf{b}=c(\mathbf{ax})+\mathbf{b}$
+                \subparagraph{Right hand side}
+                    $c T(\mathbf{x})=c(\mathbf{ax}+\mathbf{b})=c(\mathbf{ax})+c\mathbf{b}$
+                \subparagraph{Conclusion}
+                    Homogeneity breaks as the two sides are not equivalent.
+        \subsection{Part B}
+            $T: \mathbb{R}^{n \times n} \rightarrow \mathbb{R}^{n \times n}$
+            by
+            $T(\mathbf{x})=\mathbf{Ax}-\mathbf{xA}$
+            \paragraph{Checking homogeneity}
+                \subparagraph{Left hand side}
+                    $cT(\mathbf{x})=c(\mathbf{Ax}-\mathbf{xA})=c\mathbf{Ax}-c\mathbf{xA}$
+                \subparagraph{Right hand side}
+                    $T(c\mathbf{x})=\mathbf{A}(c\mathbf{x})-c\mathbf{xA}$
+                \subparagraph{Conclusion}
+                    Homogeneity checks out. We can bubble the c outwards and equate the two sides.
+            \paragraph{Checking additivity}
+                \subparagraph{Left hand side}
+                    $T(\mathbf{u}+\mathbf{v})=\mathbf{A}(\mathbf{u}+\mathbf{v})-(\mathbf{u}+\mathbf{v})\mathbf{A}=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}$
+                \subparagraph{Right hand side}
+                    $T(\mathbf{u})+T(\mathbf{v})=(\mathbf{Au}-\mathbf{uA})+(\mathbf{Av}-\mathbf{vA})=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}$
+                \subparagraph{Conclusion}
+                    Unlike above, additivity checks out. I've seen some other places have more requirements,
+                    such as $\langle 0, 0, \dots \rangle \rightarrow \langle 0, 0, \dots \rangle$
+                    but all of those follow from homogeneity and additivity.
+
+\end{document}
