@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{pgfplots} % for graphs
+\usepackage{hyperref} % for hyperlinks
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem} % for custom lists
+
+\usepackage{tikz}
+\usetikzlibrary {positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+\usepackage[svgnames]{xcolor}
+
+\usepackage{lipsum} % For dummy text
+\usepackage{cite} % For citations
+
+\pagestyle{fancy}  
+\fancyhf{} % Clear all header and footer fields
+
+\usepackage{tcolorbox} % Required for tcolorbox
+
+\newtcolorbox{solutioncheck}{
+    colback=green!10, % Background color
+    colframe=gray!50, % Frame color
+    boxsep=5pt, % Padding
+    arc=4pt, % Rounded corners
+    title=Checking solution, % Optional title for the aside
+    fonttitle=\bfseries, % Title font style
+} % for Asides
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number 
+\lfoot{MATH620}
+\rfoot{Unit 4}
+\cfoot{Homework 5}
+
+\begin{document}
+    \section{Part 2}
+        We're composing two sets of vectors for a person traveling
+        between $A\rightarrow C$ and $C\rightarrow C$.
+        We've already done some work here getting a feel for what
+        the vectors actually mean, so, let's try to describe the sets
+        $S_{AC}$ and $S_{CC}$.
+        \subsection[Composing A to C]{For $S_{AC}$}
+            So. We can break this down. Really. Once we're at
+            $C$ things are the same, so, we can borrow from the
+            work we actually did first\dots
+            Avoiding drawing a\dots fine, I'll do it.
+            \footnote{Borrowing from https://tex.stackexchange.com/questions/57152/how-to-draw-graphs-in-latex}
+            \begin {center}
+            \begin {tikzpicture}[-latex ,auto ,node distance =4 cm and 5cm ,on grid ,
+                semithick ,
+                state/.style ={ circle ,top color =white , bottom color = processblue!20 ,
+                draw,processblue , text=blue , minimum width =1 cm}]
+                \node[state] (A){$A$};
+                \node[state] (B) [above=of A]{$B$};
+                \node[state] (C) [right=of B]{$C$};
+                \node[state] (D) [below=of C]{$D$};
+                \path (A) edge node[left] {$C_1$} (B);
+                \path (B) edge node[above] {$C_2$} (C);
+                \path (C) edge node[left] {$C_3$} (D);
+                \path (D) edge node[above] {$C_5$} (A);
+                \path (C) edge node[above left] {$C_4$} (A);
+
+            \end{tikzpicture}
+            \end{center}
+            We take as the number of moves past each camera $C_n$ the
+            corresponding entry in the column vector
+            \[
+            \begin{bmatrix}c_1\\c_2\\c_3\\c_4\\c_5\end{bmatrix}
+            \]
+            \paragraph{Part A}
+                Going to do the work for B here and restate the answer later,
+                as having shown it here gives us an easy way by which to generate
+                $4$ members of the set.
+                \[
+                S_{AC}=
+                \begin{bmatrix}1\\1\\0\\0\\0\end{bmatrix}
+                +
+                c_1\begin{bmatrix}1\\1\\0\\1\\0\end{bmatrix}
+                +
+                c_2\begin{bmatrix}1\\1\\1\\0\\1\end{bmatrix}
+                \]
+                It doesn't seem worth the effort to illustrate this. We're
+                composing all the possible set of vectors that
+                \begin{enumerate}
+                    \item Go from $A\rightarrow B\rightarrow C$ to begin with
+                    \item Travel from $C$ to $C$ via $C\rightarrow D\rightarrow A\rightarrow B\rightarrow C$
+                    \item Travel from $C$ to $C$ via $C\rightarrow A\rightarrow B\rightarrow C$
+                \end{enumerate}
+                This composes the set nicely. We can plug in a couple of coefficients for each, giving
+                \begin{enumerate}
+                    \item Letting $c_1=c_2=0$ gives $\langle 1, 1, 0, 0, 0\rangle \in S_{AC}$
+                    \item Letting $c_1=1$ and $c_2=0$ gives $\langle 2, 2, 1, 0, 1\rangle \in S_{AC}$
+                    \item Letting $c_1=0$ and $c_2=1$ gives $\langle 2, 2, 0, 1, 0\rangle \in S_{AC}$
+                    \item Letting $c_1=1$ and $c_2=1$ gives $\langle 3, 3, 1, 1, 1\rangle \in S_{AC}$
+                \end{enumerate}
+                We can understand $\langle 3, 3, 1, 1, 1\rangle$ as taking each of the separate paths we've defined
+            \paragraph{Part B}
+                Restating as above
+                \[
+                S_{AC}=
+                \begin{bmatrix}1\\1\\0\\0\\0\end{bmatrix}
+                +
+                c_1\begin{bmatrix}1\\1\\0\\1\\0\end{bmatrix}
+                +
+                c_2\begin{bmatrix}1\\1\\1\\0\\1\end{bmatrix}
+                \text{ where }
+                c_1, c_2 \in \mathbb{Z}^{*}
+                \]
+                we simply need to add a restriction here, as,
+                negative and partial movements are not defined.
+        \subsection[Composing C to C]{For $S_{CC}$}
+            We've already done all the work here, and I think the above
+            explanations are sufficient, so, I'll be brief.
+            \paragraph{Part A}
+                \[
+                S_{CC}=
+                c_1\begin{bmatrix}1\\1\\0\\1\\0\end{bmatrix}
+                +
+                c_2\begin{bmatrix}1\\1\\1\\0\\1\end{bmatrix}
+                \text{ where }
+                c_1, c_2 \in \mathbb{Z}^{*}
+                \]
+                \begin{enumerate}
+                    \item Letting $c_1=c_2=0$ gives $\langle 0, 0, 0, 0, 0\rangle \in S_{CC}$, the trivial solution
+                    \item Letting $c_1=1$ and $c_2=0$ gives $\langle 1, 1, 0, 1, 0\rangle \in S_{CC}$
+                    \item Letting $c_1=0$ and $c_2=1$ gives $\langle 1, 1, 1, 0, 1\rangle \in S_{CC}$
+                    \item Letting $c_1=1$ and $c_2=1$ gives $\langle 2, 2, 1, 1, 1\rangle \in S_{CC}$
+                \end{enumerate}
+            \paragraph{Part B}
+                Restating as above
+                \[
+                S_{CC}=
+                c_1\begin{bmatrix}1\\1\\0\\1\\0\end{bmatrix}
+                +
+                c_2\begin{bmatrix}1\\1\\1\\0\\1\end{bmatrix}
+                \text{ where }
+                c_1, c_2 \in \mathbb{Z}^{*}
+                \]
+\end{document}
