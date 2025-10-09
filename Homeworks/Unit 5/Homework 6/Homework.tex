@@ -51,7 +51,8 @@
                 \subparagraph{Right hand side}
                     $c T(\mathbf{x})=c(\mathbf{ax}+\mathbf{b})=c(\mathbf{ax})+c\mathbf{b}$
                 \subparagraph{Conclusion}
-                    Homogeneity breaks as the two sides are not equivalent.
+                    Homogeneity breaks as the two sides are not equivalent. The relationship
+                    is not a linear transormation.
         \subsection{Part B}
             $T: \mathbb{R}^{n \times n} \rightarrow \mathbb{R}^{n \times n}$
             by
@@ -67,10 +68,35 @@
                 \subparagraph{Left hand side}
                     $T(\mathbf{u}+\mathbf{v})=\mathbf{A}(\mathbf{u}+\mathbf{v})-(\mathbf{u}+\mathbf{v})\mathbf{A}=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}$
                 \subparagraph{Right hand side}
-                    $T(\mathbf{u})+T(\mathbf{v})=(\mathbf{Au}-\mathbf{uA})+(\mathbf{Av}-\mathbf{vA})=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}$
+                    \[(\mathbf{u})+T(\mathbf{v})=(\mathbf{Au}-\mathbf{uA})+(\mathbf{Av}-\mathbf{vA})=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}\]
                 \subparagraph{Conclusion}
                     Unlike above, additivity checks out. I've seen some other places have more requirements,
                     such as $\langle 0, 0, \dots \rangle \rightarrow \langle 0, 0, \dots \rangle$
-                    but all of those follow from homogeneity and additivity.
-
+                    but all of those follow from homogeneity and additivity. So, it is a linear transformation.
+        \subsection{Part C}
+            $\phi: \mathbb{C}\rightarrow \mathbb{C}$
+            by
+            $\phi(a+bi)=b+ai$
+            and
+            $c \in{\mathbb{C}}$
+            where
+            $c=d+ei$
+            \paragraph{Checking homogeneity}
+                \subparagraph{Left hand side}
+                    $\phi(c[a+bi])=\phi(ca+bi)=(d+ei)(a+bi)=ad-be$
+                \subparagraph{Right hand side}
+                    $c\phi(a+bi)=c[a+bi]=(d+ei)(a+bi)=ca+bi$
+                \subparagraph{Conclusion}
+                    Homogeneity breaks. Having done this incorrectly before though,
+                    with a non-complex scalar it will work. The relationship given
+                    is not a linear transformation. I want to check additivity just out of curiosity.
+            \paragraph{Examining additivity too}
+                Let $c=d+ei$ and $f=g+hi$ as $c,\,f\in{\mathbb{C}}$.
+                \subparagraph{Left hand side}
+                    $\phi(c+f)=\phi([d+ei]+[g+hi])=\phi([d+g]+[e+h]i)=d+g-e-h$
+                \subparagraph{Right hand side}
+                    $\phi(c)+\phi(f)=\phi(d+ei)+\phi(g+hi)=e+di+h+gi$
+                \subparagraph{Conclusion}
+                    Guess it doesn't work here either. As $\phi(c+f)\ne\phi(c)+\phi(f)$\dots
+                    well, atleast it isn't always true, the transformation isn't linear.
 \end{document}
