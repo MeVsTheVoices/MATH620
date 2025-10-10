@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{pgfplots} % for graphs
+\usepackage{hyperref} % for hyperlinks
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem} % for custom lists
+
+\usepackage{tikz}
+\usepackage[svgnames]{xcolor}
+
+\usepackage{lipsum} % For dummy text
+\usepackage{cite} % For citations
+
+\pagestyle{fancy}  
+\fancyhf{} % Clear all header and footer fields
+
+\usepackage{tcolorbox} % Required for tcolorbox
+
+\newtcolorbox{solutioncheck}{
+    colback=green!10, % Background color
+    colframe=gray!50, % Frame color
+    boxsep=5pt, % Padding
+    arc=4pt, % Rounded corners
+    title=Checking solution, % Optional title for the aside
+    fonttitle=\bfseries, % Title font style
+} % for Asides
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number 
+\lfoot{MATH620}
+\rfoot{Unit 4}
+\cfoot{Homework 5}
+
+\begin{document}
+    \section{Question 1}
+        \paragraph{Determine}
+            Examine the transformations below and Determine
+            whether they are linear. Justify this by the
+            definition as given in class, showing that it does
+            indeed hold, or showing where on which condition things
+            break down.
+        \subsection{Part a}
+            $T: \mathbb{R}^n\rightarrow \mathbb{R}^n$
+            by
+            $T(\mathbf{x})=a\mathbf{x}+\mathbf{b}\quad \forall{b}\in{\mathbf{R}^{n\times n}}$
+            \paragraph{Checking homogeneity}
+                \subparagraph{Left hand side}
+                    $T(c\mathbf{x})=\mathbf{a} (c \mathbf{x})+\mathbf{b}=c(\mathbf{ax})+\mathbf{b}$
+                \subparagraph{Right hand side}
+                    $c T(\mathbf{x})=c(\mathbf{ax}+\mathbf{b})=c(\mathbf{ax})+c\mathbf{b}$
+                \subparagraph{Conclusion}
+                    Homogeneity breaks as the two sides are not equivalent. The relationship
+                    is not a linear transormation.
+        \subsection{Part B}
+            $T: \mathbb{R}^{n \times n} \rightarrow \mathbb{R}^{n \times n}$
+            by
+            $T(\mathbf{x})=\mathbf{Ax}-\mathbf{xA}$
+            \paragraph{Checking homogeneity}
+                \subparagraph{Left hand side}
+                    $cT(\mathbf{x})=c(\mathbf{Ax}-\mathbf{xA})=c\mathbf{Ax}-c\mathbf{xA}$
+                \subparagraph{Right hand side}
+                    $T(c\mathbf{x})=\mathbf{A}(c\mathbf{x})-c\mathbf{xA}$
+                \subparagraph{Conclusion}
+                    Homogeneity checks out. We can bubble the c outwards and equate the two sides.
+            \paragraph{Checking additivity}
+                \subparagraph{Left hand side}
+                    $T(\mathbf{u}+\mathbf{v})=\mathbf{A}(\mathbf{u}+\mathbf{v})-(\mathbf{u}+\mathbf{v})\mathbf{A}=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}$
+                \subparagraph{Right hand side}
+                    \[(\mathbf{u})+T(\mathbf{v})=(\mathbf{Au}-\mathbf{uA})+(\mathbf{Av}-\mathbf{vA})=\mathbf{Au}+\mathbf{Av}-\mathbf{uA}-\mathbf{vA}\]
+                \subparagraph{Conclusion}
+                    Unlike above, additivity checks out. I've seen some other places have more requirements,
+                    such as $\langle 0, 0, \dots \rangle \rightarrow \langle 0, 0, \dots \rangle$
+                    but all of those follow from homogeneity and additivity. So, it is a linear transformation.
+        \subsection{Part C}
+            $\phi: \mathbb{C}\rightarrow \mathbb{C}$
+            by
+            $\phi(a+bi)=b+ai$
+            and
+            $c \in{\mathbb{C}}$
+            where
+            $c=d+ei$
+            \paragraph{Checking homogeneity}
+                \subparagraph{Left hand side}
+                    $\phi(c[a+bi])=\phi(ca+bi)=(d+ei)(a+bi)=ad-be$
+                \subparagraph{Right hand side}
+                    $c\phi(a+bi)=c[a+bi]=(d+ei)(a+bi)=ca+bi$
+                \subparagraph{Conclusion}
+                    Homogeneity breaks. Having done this incorrectly before though,
+                    with a non-complex scalar it will work. The relationship given
+                    is not a linear transformation. I want to check additivity just out of curiosity.
+            \paragraph{Examining additivity too}
+                Let $c=d+ei$ and $f=g+hi$ as $c,\,f\in{\mathbb{C}}$.
+                \subparagraph{Left hand side}
+                    $\phi(c+f)=\phi([d+ei]+[g+hi])=\phi([d+g]+[e+h]i)=d+g-e-h$
+                \subparagraph{Right hand side}
+                    $\phi(c)+\phi(f)=\phi(d+ei)+\phi(g+hi)=e+di+h+gi$
+                \subparagraph{Conclusion}
+                    Guess it doesn't work here either. As $\phi(c+f)\ne\phi(c)+\phi(f)$\dots
+                    well, atleast it isn't always true, the transformation isn't linear.
+    \section{Question 2}
+        Considering a matrix and finding $col(\mathbf{A}),\,row(\mathbf{A}),\,rank(\mathbf{A}),\,nul(\mathbf{A})$
+        We're to develop a basis for each, and I'm going to recite definitions as we go so they're a little fresher.
+        \paragraph{Given}
+            First, let's RREF this bad boi, knock it's numbers around a little
+        \[
+            \mathbf{A}=\begin{bmatrix}3&2&4&4&0\\1&-1&3&9&11\\2&5&-1&-3&-13\\0&6&-6&4&-8\end{bmatrix}
+            \rightarrow
+            \begin{bmatrix}1&0&2&0&0\\0&1&-1&0&-2\\0&0&0&1&1\\0&0&0&0&0\end{bmatrix}
+        \]
+        \subsection[The column space of A]{$\text{col}(\mathbf{A})$}
+            \paragraph{Definition}
+                The column space is the set of all possible linear combinations of a matrices column vectors.
+                \[
+                    \text{col}(\mathbf{a})=\text{span}(\mathbf{c}_1,\mathbf{c}_2,\dots,\mathbf{c}_n)
+                \]
+            \paragraph{Basis}
+                I feel that we could be cheaty for all these, as, simply giving each column a coefficient
+                would still generate a the same space, however, if we look at the terms of the reduced matrix
+                we see that only three rows actually start with a one. So, disreguarding the 3\textsuperscript{rd} and 5\textsuperscript{th}
+                columns we can more efficiently generate the space with
+                \[
+                    \text{col}(\mathbf{A})=c_1\begin{bmatrix}3\\1\\2\\0\end{bmatrix}+c_2\begin{bmatrix}2\\-1\\5\\6\end{bmatrix}+c_3\begin{bmatrix}4\\9\\-3\\4\end{bmatrix}
+                \]
+        \subsection[The row space of A]{$\text{row}(\mathbf{A})$}
+            \paragraph{Definition}
+                The row space is the set of all possible linear combinations of a matrices row vectors.
+                \[
+                    \text{row}(\mathbf{A})=\text{span}(\mathbf{r}_1,\mathbf{r}_2,\dots,\mathbf{r}_n)
+                \]
+            \paragraph{Basis}
+                Likewise as before, we can ditch those rows that have no leading ones.
+                \[
+                    \text{row}(\mathbf{A})=c_1\begin{bmatrix}3\\2\\4\\4\\0\end{bmatrix}+c_2\begin{bmatrix}1\\-1\\3\\9\\11\end{bmatrix}+c_3\begin{bmatrix}2\\5\\-1\\-3\\-13\end{bmatrix}
+                \]
+
+\end{document}
