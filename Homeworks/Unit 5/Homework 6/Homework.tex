@@ -109,16 +109,30 @@
             \rightarrow
             \begin{bmatrix}1&0&2&0&0\\0&1&-1&0&-2\\0&0&0&1&1\\0&0&0&0&0\end{bmatrix}
         \]
-        \subsection[The column space of A]{$col(\mathbf{A})$}
+        \subsection[The column space of A]{$\text{col}(\mathbf{A})$}
             \paragraph{Definition}
                 The column space is the set of all possible linear combinations of a matrices column vectors.
+                \[
+                    \text{col}(\mathbf{a})=\text{span}(\mathbf{c}_1,\mathbf{c}_2,\dots,\mathbf{c}_n)
+                \]
             \paragraph{Basis}
                 I feel that we could be cheaty for all these, as, simply giving each column a coefficient
                 would still generate a the same space, however, if we look at the terms of the reduced matrix
                 we see that only three rows actually start with a one. So, disreguarding the 3\textsuperscript{rd} and 5\textsuperscript{th}
                 columns we can more efficiently generate the space with
                 \[
-                    col(\mathbf{A})=c_1\begin{bmatrix}3\\1\\2\\0\end{bmatrix}+c_2\begin{bmatrix}2\\-1\\5\\6\end{bmatrix}+c_3\begin{bmatrix}4\\9\\-3\\4\end{bmatrix}
+                    \text{col}(\mathbf{A})=c_1\begin{bmatrix}3\\1\\2\\0\end{bmatrix}+c_2\begin{bmatrix}2\\-1\\5\\6\end{bmatrix}+c_3\begin{bmatrix}4\\9\\-3\\4\end{bmatrix}
+                \]
+        \subsection[The row space of A]{$\text{row}(\mathbf{A})$}
+            \paragraph{Definition}
+                The row space is the set of all possible linear combinations of a matrices row vectors.
+                \[
+                    \text{row}(\mathbf{A})=\text{span}(\mathbf{r}_1,\mathbf{r}_2,\dots,\mathbf{r}_n)
+                \]
+            \paragraph{Basis}
+                Likewise as before, we can ditch those rows that have no leading ones.
+                \[
+                    \text{row}(\mathbf{A})=c_1\begin{bmatrix}3\\2\\4\\4\\0\end{bmatrix}+c_2\begin{bmatrix}1\\-1\\3\\9\\11\end{bmatrix}+c_3\begin{bmatrix}2\\5\\-1\\-3\\-13\end{bmatrix}
                 \]
 
 \end{document}
