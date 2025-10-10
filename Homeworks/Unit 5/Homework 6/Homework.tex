@@ -134,5 +134,46 @@
                 \[
                     \text{row}(\mathbf{A})=c_1\begin{bmatrix}3\\2\\4\\4\\0\end{bmatrix}+c_2\begin{bmatrix}1\\-1\\3\\9\\11\end{bmatrix}+c_3\begin{bmatrix}2\\5\\-1\\-3\\-13\end{bmatrix}
                 \]
+                I think I should be writing this a little differently, like,
+                $basis_{\text{row}(\mathbf{A})}=\dots$ but that's a niggling issue for another day.
+        \subsection[The column space of A]{$\text{column}(\mathbf{A})$}
+            \paragraph{Definition}
+                The column space is the set of all possible linear combinations of a matrices column vectors.
+                \[
+                    \text{row}(\mathbf{A})=\text{span}(\mathbf{c}_1,\mathbf{c}_2,\dots,\mathbf{c}_n)
+                \]
+            Ran in to a little uncertainty here that I plan to clarify sometime I get the time.
+            The prevailing wisdom is that I should take only those original column vectors that
+            have corresponding pivots in the reduced matrix. 
+            We had pivots in the 1\textsuperscript{st}, 2\textsuperscript{nd}, and 4\textsuperscript{th} columns,
+            so if we retain only those we can create a basis like so.
+            \paragraph{Basis}
+                \[
+                    \text{col}(\mathbf{A})=c_1\begin{bmatrix}3\\1\\2\\0\end{bmatrix}+c_2\begin{bmatrix}2\\-1\\5\\6\end{bmatrix}+c_3\begin{bmatrix}4\\9\\-3\\4\end{bmatrix}
+                \]
+            We could have just as easily enumerated all the possible column vectors, but I'm reasonably confident
+            in the way I'm interepreting the reduced form. Do need to double check and better understand why though.
+        \subsection[The null space of A]{$\text{null}(\mathbf{A})$}
+            \paragraph{Definition}
+                The null space is the of all possible linear combinations that, when multiplied by the original
+                matrix, result in the zero vector
+                \[
+                    \text{null}(\mathbf{A})=\{\mathbf{x}\,|\,\mathbf{Ax}=\mathbf{0}\}
+                \]
+            Starting with our reduced form, we can augment said matrix with the zero vector and solve
+            \paragraph{Solution}
+                We imagine a column of zero's along the right side of the previous. We have two free, so, choose
+                $x_3=0$ and $x_5=1$ so that we don't end up with a trivial solution. Doing this we get\dots$x_1=0$, $x_2=2$, $x_4=-1$
+                We still need one more though, with two free variables. So, for the other, let $x_3=1$ and $x_5=0$.
+                We get $x_4=0$, $x_1=-2$, $x_2=1$.
+                
+            \paragraph{Basis}
+                \[
+                    \text{null}(\mathbf{A})=c_1\begin{bmatrix}1\\2\\0\\-1\\1\end{bmatrix}+c_2\begin{bmatrix}-2\\1\\1\\0\\0\end{bmatrix}
+                \]
+        \subsection[The rank of A]{$\text{rank}(\mathbf{A})$}
+            We've already done all the heavy lifting here. We know that $\text{rank}(\mathbf{A})=3$ from way back.
+            It was the number of pivots in our reduced form.
+
 
 \end{document}
