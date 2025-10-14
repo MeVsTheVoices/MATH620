@@ -201,5 +201,85 @@
             Likewise with before, we've already done all the work there. There are only $2$ values of $\alpha$
             that will lead to nonzero determinants, therefor any value for which $\alpha \ne 2$ and $\alpha \ne 3$
             the $\text{span}(\mathbf{A})=\mathbb{R}^3$.
+    \section{Question 4}
+        We want the $\text{null}(\mathbf{A})$ and $\text{null}(\mathbf{B})$ 
+            \paragraph{Given}
+                \[
+                    \mathbf{A}=\begin{bmatrix}0&0&0&0\\0&0&0&0\end{bmatrix}
+                    \text{, }
+                    \mathbf{B}=\begin{bmatrix}3&6&3&6\\1&2&1&2\end{bmatrix}
+                \]
+            \paragraph{For $\mathbf{A}$}
+                This looks a little awkward, but, we're still after the same thing
+                \[
+                    \begin{bmatrix}0&0&0&0\\0&0&0&0\end{bmatrix}
+                    \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
+                    =
+                    \begin{bmatrix}0\\0\end{bmatrix}
+                \]
+                It should be easy to see that any values $x_1$, $x_2$, $x_3$, $x_4$ in $\mathbb{R}$
+                will satisfy this equation. So, we can write the basis for the null space as
+                \[
+                    \text{null}(\mathbf{A})=c_1\begin{bmatrix}1\\0\\0\\0\end{bmatrix}+c_2\begin{bmatrix}0\\1\\0\\0\end{bmatrix}+c_3\begin{bmatrix}0\\0\\1\\0\end{bmatrix}+c_4\begin{bmatrix}0\\0\\0\\1\end{bmatrix}
+                    =
+                    \mathbf{I}_4
+                \]
+            \paragraph{For $\mathbf{B}$}
+                Ew. This looks nasty, but, we can row reduce it and make it a little easier.
+                \[
+                    \begin{bmatrix}3&6&3&6\\1&2&1&2\end{bmatrix}
+                    \rightarrow
+                    \begin{bmatrix}1&2&1&2\\0&0&0&0\end{bmatrix}
+                \]
+                Associating this with the corresponding vector we get\dots
+                \[
+                    x_1+2x_2+x_3+2x_4=0
+                \]
+                We could totally just leave things here, we're saying that you can pick
+                anything you want for the last three, and that only the first has to be determined.
+                Anything that satisfies above will solve $\mathbf{Bx}=\mathbf{0}$.
+                Continuing on though, we can do a little rearranging.
+                We have three free variables, and this kind of flies in the face of intuition,
+                but we can follow the methodology presented in class. If we specify the relationships for each $x_n$
+                in terms of the free variables, taking $x_2$, $x_3$, and $x_4$ as free, we get\dots
+                \[
+                    \mathbf{x}
+                    =
+                    \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
+                    =
+                    \begin{bmatrix}-2x_2-x_3-2x_4\\x_2\\x_3\\x_4\end{bmatrix}
+                    =
+                        x_2\begin{bmatrix}-2\\1\\0\\0\end{bmatrix}
+                        +
+                        x_3\begin{bmatrix}-1\\0\\1\\0\end{bmatrix}
+                        +
+                        x_4\begin{bmatrix}-2\\0\\0\\1\end{bmatrix}
+                \]
+                How's that for nasty? We have so many free variables we can write
+                the null space in terms of the other variables. This is both our nullspace
+                \textbf{and} the basis for our nullspace\dots
+    \section{Question 5}
+        Starting with a $4\times 8$, and adding as many ones as possible so that
+        $x_2$, $x_4$, $x_5$, and $x_6$ are free.
+        \[
+            \begin{bmatrix}0&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&0\end{bmatrix}
+            \begin{bmatrix}x_1\\x_2\\x_3\\x_4\\x_5\\x_6\\x_7\\x_8\end{bmatrix}
+        \]
+        \paragraph{Restrictions}
+            We know that we can't have pivots in columns for those entires.
+            However, we do have to have pivots for those variables that aren't free.
+            Let's do the latter first, then we can pad right.
+            Also, because we're assuming RREF'ed, nix anything in the lower diagonal.
+        \paragraph{With pivots}
+        \[
+        \begin{bmatrix}1&0&0&0&0&0&0&0\\0&0&1&0&0&0&0&0\\0&0&0&0&0&0&1&0\\0&0&0&0&0&0&0&1\end{bmatrix}
+        \]
+        \paragraph{Padding right}
+            From there, we have considerable freedom, \textbf{if} we have a pivot in that column,
+            then we \textbf{don't} have a 1 anywhere else.
+            \[
+                \begin{bmatrix}1&1&0&1&1&1&0&0\\0&0&1&1&1&1&0&0\\0&0&0&0&0&0&1&0\\0&0&0&0&0&0&0&1\end{bmatrix}
+            \]
+            That should satisfy. I can't think where else I could place a one and not break anything else.
 
 \end{document}
