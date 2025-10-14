@@ -134,5 +134,152 @@
                 \[
                     \text{row}(\mathbf{A})=c_1\begin{bmatrix}3\\2\\4\\4\\0\end{bmatrix}+c_2\begin{bmatrix}1\\-1\\3\\9\\11\end{bmatrix}+c_3\begin{bmatrix}2\\5\\-1\\-3\\-13\end{bmatrix}
                 \]
+                I think I should be writing this a little differently, like,
+                $basis_{\text{row}(\mathbf{A})}=\dots$ but that's a niggling issue for another day.
+        \subsection[The column space of A]{$\text{column}(\mathbf{A})$}
+            \paragraph{Definition}
+                The column space is the set of all possible linear combinations of a matrices column vectors.
+                \[
+                    \text{row}(\mathbf{A})=\text{span}(\mathbf{c}_1,\mathbf{c}_2,\dots,\mathbf{c}_n)
+                \]
+            Ran in to a little uncertainty here that I plan to clarify sometime I get the time.
+            The prevailing wisdom is that I should take only those original column vectors that
+            have corresponding pivots in the reduced matrix. 
+            We had pivots in the 1\textsuperscript{st}, 2\textsuperscript{nd}, and 4\textsuperscript{th} columns,
+            so if we retain only those we can create a basis like so.
+            \paragraph{Basis}
+                \[
+                    \text{col}(\mathbf{A})=c_1\begin{bmatrix}3\\1\\2\\0\end{bmatrix}+c_2\begin{bmatrix}2\\-1\\5\\6\end{bmatrix}+c_3\begin{bmatrix}4\\9\\-3\\4\end{bmatrix}
+                \]
+            We could have just as easily enumerated all the possible column vectors, but I'm reasonably confident
+            in the way I'm interepreting the reduced form. Do need to double check and better understand why though.
+        \subsection[The null space of A]{$\text{null}(\mathbf{A})$}
+            \paragraph{Definition}
+                The null space is the of all possible linear combinations that, when multiplied by the original
+                matrix, result in the zero vector
+                \[
+                    \text{null}(\mathbf{A})=\{\mathbf{x}\,|\,\mathbf{Ax}=\mathbf{0}\}
+                \]
+            Starting with our reduced form, we can augment said matrix with the zero vector and solve
+            \paragraph{Solution}
+                We imagine a column of zero's along the right side of the previous. We have two free, so, choose
+                $x_3=0$ and $x_5=1$ so that we don't end up with a trivial solution. Doing this we get\dots$x_1=0$, $x_2=2$, $x_4=-1$
+                We still need one more though, with two free variables. So, for the other, let $x_3=1$ and $x_5=0$.
+                We get $x_4=0$, $x_1=-2$, $x_2=1$.
+                
+            \paragraph{Basis}
+                \[
+                    \text{null}(\mathbf{A})=c_1\begin{bmatrix}1\\2\\0\\-1\\1\end{bmatrix}+c_2\begin{bmatrix}-2\\1\\1\\0\\0\end{bmatrix}
+                \]
+        \subsection[The rank of A]{$\text{rank}(\mathbf{A})$}
+            We've already done all the heavy lifting here. We know that $\text{rank}(\mathbf{A})=3$ from way back.
+            It was the number of pivots in our reduced form.
+    \section{Question 3}
+        We want to find all possible values of a matrix $\mathbf{A}$ such that $\text{rank}(\mathbf{A})=3$ and that $\text{rank}(\mathbf{A})=2$.
+        \paragraph{Given}
+            \[
+                \mathbf{A}=\begin{bmatrix}1&2&\alpha\\4&4&8\\\alpha&1&4\end{bmatrix}
+            \]
+        \paragraph{Finding where rank is not 3}
+            Let's jump in and take the determinant to start, this should give us a relationship we can work with.
+            \[
+                \text{det}(\mathbf{A})=\alpha(16-4\alpha)-1(8-4\alpha)+4(4-8)=-4\alpha^2+20\alpha-24
+            \]
+            When the determinant is $0$, we can't be spanning all of $\mathbb{R}^3$ so
+            \[
+                -4\alpha^2+20\alpha-24=0
+                \rightarrow
+                \alpha^2-5\alpha+6=0
+            \]
+            So, we have solutions where $\alpha=2$ and $\alpha=3$. If either of these is true, we do not span $R^3$
+            \subparagraph{Fining where the rank is 2}
+                So, we know we don't span $\mathbb{R}^3$ is $\alpha=3$ or $\alpha=2$. Now we need to figure out which
+                of these might limit our span even down to $\mathbb{R}$. I'm going to borrow a trick from Jack and make this simple.
+                Because we have a 2x2 submatrix whose determinant is nonzero, $$det(\begin{bmatrix}1&2\\4&4\end{bmatrix})\ne0$$
+                For both values $\alpha=2$ and $\alpha=3$, the $\text{span}(\mathbf{A})=\mathbb{R}^2$
+        \paragraph{Finiding where the rank is 3}
+            Likewise with before, we've already done all the work there. There are only $2$ values of $\alpha$
+            that will lead to nonzero determinants, therefor any value for which $\alpha \ne 2$ and $\alpha \ne 3$
+            the $\text{span}(\mathbf{A})=\mathbb{R}^3$.
+    \section{Question 4}
+        We want the $\text{null}(\mathbf{A})$ and $\text{null}(\mathbf{B})$ 
+            \paragraph{Given}
+                \[
+                    \mathbf{A}=\begin{bmatrix}0&0&0&0\\0&0&0&0\end{bmatrix}
+                    \text{, }
+                    \mathbf{B}=\begin{bmatrix}3&6&3&6\\1&2&1&2\end{bmatrix}
+                \]
+            \paragraph{For $\mathbf{A}$}
+                This looks a little awkward, but, we're still after the same thing
+                \[
+                    \begin{bmatrix}0&0&0&0\\0&0&0&0\end{bmatrix}
+                    \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
+                    =
+                    \begin{bmatrix}0\\0\end{bmatrix}
+                \]
+                It should be easy to see that any values $x_1$, $x_2$, $x_3$, $x_4$ in $\mathbb{R}$
+                will satisfy this equation. So, we can write the basis for the null space as
+                \[
+                    \text{null}(\mathbf{A})=c_1\begin{bmatrix}1\\0\\0\\0\end{bmatrix}+c_2\begin{bmatrix}0\\1\\0\\0\end{bmatrix}+c_3\begin{bmatrix}0\\0\\1\\0\end{bmatrix}+c_4\begin{bmatrix}0\\0\\0\\1\end{bmatrix}
+                    =
+                    \mathbf{I}_4
+                \]
+            \paragraph{For $\mathbf{B}$}
+                Ew. This looks nasty, but, we can row reduce it and make it a little easier.
+                \[
+                    \begin{bmatrix}3&6&3&6\\1&2&1&2\end{bmatrix}
+                    \rightarrow
+                    \begin{bmatrix}1&2&1&2\\0&0&0&0\end{bmatrix}
+                \]
+                Associating this with the corresponding vector we get\dots
+                \[
+                    x_1+2x_2+x_3+2x_4=0
+                \]
+                We could totally just leave things here, we're saying that you can pick
+                anything you want for the last three, and that only the first has to be determined.
+                Anything that satisfies above will solve $\mathbf{Bx}=\mathbf{0}$.
+                Continuing on though, we can do a little rearranging.
+                We have three free variables, and this kind of flies in the face of intuition,
+                but we can follow the methodology presented in class. If we specify the relationships for each $x_n$
+                in terms of the free variables, taking $x_2$, $x_3$, and $x_4$ as free, we get\dots
+                \[
+                    \mathbf{x}
+                    =
+                    \begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
+                    =
+                    \begin{bmatrix}-2x_2-x_3-2x_4\\x_2\\x_3\\x_4\end{bmatrix}
+                    =
+                        x_2\begin{bmatrix}-2\\1\\0\\0\end{bmatrix}
+                        +
+                        x_3\begin{bmatrix}-1\\0\\1\\0\end{bmatrix}
+                        +
+                        x_4\begin{bmatrix}-2\\0\\0\\1\end{bmatrix}
+                \]
+                How's that for nasty? We have so many free variables we can write
+                the null space in terms of the other variables. This is both our nullspace
+                \textbf{and} the basis for our nullspace\dots
+    \section{Question 5}
+        Starting with a $4\times 8$, and adding as many ones as possible so that
+        $x_2$, $x_4$, $x_5$, and $x_6$ are free.
+        \[
+            \begin{bmatrix}0&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&0\\0&0&0&0&0&0&0&0\end{bmatrix}
+            \begin{bmatrix}x_1\\x_2\\x_3\\x_4\\x_5\\x_6\\x_7\\x_8\end{bmatrix}
+        \]
+        \paragraph{Restrictions}
+            We know that we can't have pivots in columns for those entires.
+            However, we do have to have pivots for those variables that aren't free.
+            Let's do the latter first, then we can pad right.
+            Also, because we're assuming RREF'ed, nix anything in the lower diagonal.
+        \paragraph{With pivots}
+        \[
+        \begin{bmatrix}1&0&0&0&0&0&0&0\\0&0&1&0&0&0&0&0\\0&0&0&0&0&0&1&0\\0&0&0&0&0&0&0&1\end{bmatrix}
+        \]
+        \paragraph{Padding right}
+            From there, we have considerable freedom, \textbf{if} we have a pivot in that column,
+            then we \textbf{don't} have a 1 anywhere else.
+            \[
+                \begin{bmatrix}1&1&0&1&1&1&0&0\\0&0&1&1&1&1&0&0\\0&0&0&0&0&0&1&0\\0&0&0&0&0&0&0&1\end{bmatrix}
+            \]
+            That should satisfy. I can't think where else I could place a one and not break anything else.
 
 \end{document}
