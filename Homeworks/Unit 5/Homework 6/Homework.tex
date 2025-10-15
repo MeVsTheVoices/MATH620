@@ -9,6 +9,8 @@
 
 \usepackage{tikz}
 \usepackage[svgnames]{xcolor}
+\usetikzlibrary {positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
 
 \usepackage{lipsum} % For dummy text
 \usepackage{cite} % For citations
@@ -281,5 +283,75 @@
                 \begin{bmatrix}1&1&0&1&1&1&0&0\\0&0&1&1&1&1&0&0\\0&0&0&0&0&0&1&0\\0&0&0&0&0&0&0&1\end{bmatrix}
             \]
             That should satisfy. I can't think where else I could place a one and not break anything else.
+    \section{Question 6}
+        \paragraph{Depiction}
+            \begin {center}
+            \begin {tikzpicture}[-latex ,auto ,node distance =4 cm and 5cm ,on grid ,
+                semithick ,
+                state/.style ={ circle ,top color =white , bottom color = processblue!20 ,
+                draw,processblue , text=blue , minimum width =1 cm}]
+                \node[state] (A){$1$};
+                \node[state] (B) [right = of A]{$2$};
+                \node[state] (D) [below = of A, xshift=2.5cm] {$4$};
+                \node[state] (C) [below = of D]{$3$};
+                \path (A) edge node[above] {$y_1$} (B);
+                \path (B) edge node[above left] {$y_5$} (D);
+                \path (C) edge node[left] {$y_6$} (D);
+                \path (A) edge node[above right] {$y_4$} (D);
+                \path (C) edge node[above left] {$y_3$} (A);
+                \path (B) edge node[above right] {$y_2$} (C);
 
+            \end{tikzpicture}
+            \end{center}
+            This looks familiar, let's take a column of zero's as our augment, then we can equate
+        \paragraph{Analysis}
+            \begin{align*}
+                0&=-y_1+y_3+y_4\\
+                0&=y_1-y_2-y_5\\
+                0&=y_2-y_3-y_6\\
+                0&=y_4+y_5+y_6
+            \end{align*}
+            \[
+                \begin{bmatrix}
+                    -1 &  0 &  1 &  1 &  0 &  0 \\
+                     1 & -1 &  0 &  0 & -1 &  0 \\
+                     0 &  1 & -1 &  0 &  0 & -1 \\
+                     0 &  0 &  0 &  1 &  1 &  1 \\
+                \end{bmatrix}
+                \begin{bmatrix}
+                    y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    0 \\ 0 \\ 0 \\ 0
+                \end{bmatrix}
+            \]
+            We're after the null space of this matrix, so, let's reduce.
+            \[
+                \begin{bmatrix}
+                    1 & 0 & -1 & 0 & 0 & 0 \\
+                    0 & 1 & -1 & 0 & 0 & -1 \\
+                    0 & 0 & 0 & 1 & 0 & 0 \\
+                    0 & 0 & 0 & 0 & 1 & 1 
+                \end{bmatrix}
+            \]
+            Ok, we're missing pivots in\dots the 3\textsuperscript{rd}, 5\textsuperscript{th}, and 6\textsuperscript{th} columns.
+            So, we can write the relationships for those in terms of the other variables.
+            \begin{align*}
+                y_1&=y_3-y_4\\
+                y_2&=y_3+y_6\\
+                y_3&=y_3\\
+                y_4&=y_4\\
+                y_5&=-y_6-y_4\\
+                y_6&=y_6
+            \end{align*}
+            And this should form the basis for our null space, we can take
+            a linear combination of the free variables to produce\dots
+            \[
+                \text{null}(\mathbf{A})=
+                c_1\begin{bmatrix}1\\1\\1\\0\\0\\0\end{bmatrix}+
+                c_2\begin{bmatrix}-1\\0\\0\\1\\-1\\0\end{bmatrix}+
+                c_3\begin{bmatrix}0\\1\\0\\0\\-1\\1\end{bmatrix}
+            \]
+            Meaning the basis for the null space.
 \end{document}
