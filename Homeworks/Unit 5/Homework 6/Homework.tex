@@ -354,4 +354,108 @@
                 c_3\begin{bmatrix}0\\1\\0\\0\\-1\\1\end{bmatrix}
             \]
             Meaning the basis for the null space.
+    \section{Question 7}
+        We can create rank one matrices by multiplying two column vectors like so $\mathbf{u}\mathbf{v}^T$.
+        \paragraph{Given}
+            \[
+                \mathbf{A}=\begin{bmatrix}3&6&6\\1&2&2\\4&8&8\end{bmatrix}
+            \]
+        \subsection{Part A}
+            We want to find the two vectors such that we can generate $\mathbf{A}$. Let's set that up.
+            \[
+                \begin{bmatrix}u_1\\u_2\\u_3\end{bmatrix}
+                \begin{bmatrix}v_1&v_2&v_3\end{bmatrix}
+                =
+                \begin{bmatrix}3&6&6\\1&2&2\\4&8&8\end{bmatrix}
+            \]
+            \[
+                \begin{bmatrix}u_1v_1&u_1v_2&u_1v_3\\u_2v_1&u_2v_2&u_2v_3\\u_3v_1&u_3v_2&u_3v_3\end{bmatrix}
+                =
+                \begin{bmatrix}3&6&6\\1&2&2\\4&8&8\end{bmatrix}
+            \]
+            Keeping everything as a matrix to save from the massive system of equations that arrises.
+            Figuring by looking we can devise that $u_1=3$, $u_2=1$, $u3=4$ and $v_1=1$, $v_2=2$, $v_3=2$.
+            \[
+                \begin{bmatrix}3\\1\\4\end{bmatrix}
+                \begin{bmatrix}1&2&2\end{bmatrix}
+                =
+                \begin{bmatrix}3&6&6\\1&2&2\\4&8&8\end{bmatrix}
+            \]
+        \subsection{Part B}
+            We want to show that the product of two rank one matrices also has rank one.
+            Let's borrow the expanded matrix from above as a clean place to start.
+            We know from above we'd create two rank one matrices like so\dots
+            \[
+                \begin{bmatrix}u_1v_1&u_1v_2&u_1v_3\\u_2v_1&u_2v_2&u_2v_3\\u_3v_1&u_3v_2&u_3v_3\end{bmatrix}
+                \begin{bmatrix}x_1y_1&x_1y_2&x_1y_3\\x_2y_1&x_2y_2&x_2y_3\\x_3y_1&x_3y_2&x_3y_3\end{bmatrix}
+            \]
+            Expanding these on paper, then bringing back the factored form
+            {\small
+            \[
+                \begin{bmatrix}
+                    u_1(v_1x_1+v_2x_2+v_3x_3)y_1 &
+                    u_2(v_1x_1+v_2x_2+v_3x_3)y_1 &
+                    u_3(v_1x_1+v_2x_2+v_3x_3)y_1 \\
+                    u_1(v_1x_1+v_2x_2+v_3x_3)y_2 &
+                    u_2(v_1x_1+v_2x_2+v_3x_3)y_2 &
+                    u_3(v_1x_1+v_2x_2+v_3x_3)y_2 \\
+                    u_1(v_1x_1+v_2x_2+v_3x_3)y_3 &
+                    u_2(v_1x_1+v_2x_2+v_3x_3)y_3 &
+                    u_3(v_1x_1+ v_2x_2+v_3x_3)y_3
+                \end{bmatrix}
+            \]
+            }
+            \[
+                =
+                \begin{bmatrix}
+                    u_1\\u_2\\u_3
+                \end{bmatrix}
+                (v_1x_1+v_2x_2+v_3x_3)
+                \begin{bmatrix}
+                    y_1&y_2&y_3
+                \end{bmatrix}
+            \]
+            \paragraph{Where rank is one}
+                We can see that this is still a product of two vectors, and
+                therefore has rank one.
+                The scalar in the middle doesn't change anything, it just
+                scales the resulting matrix.
+            \paragraph{Where rank is zero}
+                The only way this could fail to be rank one is if the scalar
+                in the middle is zero. This would happen if
+                $v_1x_1+v_2x_2+v_3x_3=0$. In this case, the resulting matrix
+                would be a zero matrix, which has rank zero.
+        \subsection{Part C}
+                We want to find $\mathbf{A}_1$ and $\mathbf{A}_2$ such that
+                $\text{rank}(\mathbf{A}_1\mathbf{B})=1$ and $\text{rank}(\mathbf{A}_2\mathbf{B})=0$.
+                \paragraph{Given}
+                    \[
+                        \mathbf{B}=\begin{bmatrix}1&1\\1&1\end{bmatrix}
+                    \]
+                \paragraph{Finding $\mathbf{A}_1$}
+                    Let's borrow from above, we know that if we multiply two rank one matrices
+                    we get another rank one matrix. So, let's just pick something simple.
+                    \[
+                        \mathbf{A}_1=\begin{bmatrix}1&0\\0&0\end{bmatrix}
+                    \]
+                    \[
+                        \mathbf{A}_1\mathbf{B}=\begin{bmatrix}1&1\\0&0\end{bmatrix}
+                    \]
+                    \[
+                        \text{rank}(\mathbf{A}_1\mathbf{B})=1
+                    \]
+                \paragraph{Finding $\mathbf{A}_2$}
+                    We know from above that if the scalar in the middle is zero,
+                    then the resulting matrix will be a zero matrix, which has rank zero.
+                    So, let's pick something that will make that happen.
+                    \[
+                        \mathbf{A}_2=\begin{bmatrix}1&-1\\-1&1\end{bmatrix}
+                    \]
+                    \[
+                        \mathbf{A}_2\mathbf{B}=\begin{bmatrix}0&0\\0&0\end{bmatrix}
+                    \]
+                    \[
+                        \text{rank}(\mathbf{A}_2\mathbf{B})=0
+                    \]
+            Very much rushing through this last part, but the intuition is there.
 \end{document}
