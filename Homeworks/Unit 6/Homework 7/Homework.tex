@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{pgfplots} % for graphs
+\usepackage{hyperref} % for hyperlinks
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem} % for custom lists
+
+\usepackage{tikz}
+\usepackage[svgnames]{xcolor}
+\usetikzlibrary {positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+\usepackage{lipsum} % For dummy text
+\usepackage{cite} % For citations
+
+\pagestyle{fancy}  
+\fancyhf{} % Clear all header and footer fields
+
+\usepackage{tcolorbox} % Required for tcolorbox
+
+\newtcolorbox{solutioncheck}{
+    colback=green!10, % Background color
+    colframe=gray!50, % Frame color
+    boxsep=5pt, % Padding
+    arc=4pt, % Rounded corners
+    title=Checking solution, % Optional title for the aside
+    fonttitle=\bfseries, % Title font style
+} % for Asides
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number 
+\lfoot{MATH620}
+\rfoot{Unit 4}
+\cfoot{Homework 5}
+
+\begin{document}
+    \section{Question 1}
+        \paragraph{Given}
+            We're given a set of points that have different offsets
+            based on two different basis vectors. First, let's grab
+            these points and where they map to in the new basis.
+        \subsection{Part A}
+            \begin{center}
+                \Large
+            \begin{tabular}{c c c c}
+                $\mathbf{B}_x$ & $\mathbf{B}_y$ & $\mathbf{B}'_x$ & $\mathbf{B}'_y$ \\
+                \hline
+                1 & 4 & 0 & 1\\
+                4 & 7 & 1 & 2\\
+                -8 & -5 & -3 & -2\\
+                7 & 1 & 1 & 0\\
+                $5\frac{1}{2}$ & -5 & 3 & $-\frac{1}{2}$\\
+                -6 & $-1\frac{1}{2}$ & $-2\frac{1}{2}$ & -1
+            \end{tabular}
+            \end{center}
+            Where I've denoted $\mathbf{B}$ as the black basis, and $\mathbf{B}'$ as the red.
+            These taken together give us plenty of information to find a change of basis.
+        \subsection{Part B}
+            The points above are of the form $[\mathbf{v}_n]_{\mathbf{B}}\, \rightarrow \,[\mathbf{v}_n]_{\mathbf{B}'}\, \forall{n}$.
+            So we can form a system mapping two columns of the first to that of the second.
+            \paragraph{The system}
+                Let $\mathbf{P}$ be the change of basis we're attempting to find.
+                \[
+                    \mathbf{P}\begin{bmatrix}1 & 4\\4 & 7\end{bmatrix}
+                    =
+                    \begin{bmatrix}0 & 1\\1 & 2\end{bmatrix}
+                \]
+                We need to clear out the left hand side, so take the matrix besides $\mathbf{P}$
+                as $\mathbf{A}$, and find the inverse. As $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}_2$
+                \[
+                    \mathbf{P}=
+                    \begin{bmatrix}0 & 1\\1 & 2\end{bmatrix}
+                    \begin{bmatrix}1 & 4\\4 & 7\end{bmatrix}^{-1}
+                    =
+                    \begin{bmatrix}0 & 1\\1 & 2\end{bmatrix}
+                    \frac{1}{9}
+                    \begin{bmatrix}7 & -4\\-4 & 1\end{bmatrix}
+                    =
+                    \frac{1}{9}
+                    \begin{bmatrix}4 & -1\\1 & 2\end{bmatrix}
+                \]
+                \begin{solutioncheck}
+                    Let's check this solution by multiplying $\mathbf{P}$ by another point
+                    in the original basis, and see if it maps to the correct point in the new basis.
+                    \[
+                        \mathbf{P}\begin{bmatrix}-8\\-5\end{bmatrix}
+                        =
+                        \frac{1}{9}
+                        \begin{bmatrix}4 & -1\\1 & 2\end{bmatrix}
+                        \begin{bmatrix}-8\\-5\end{bmatrix}
+                        =
+                        \frac{1}{9}
+                        \begin{bmatrix}-32 + 5\\-8 - 10\end{bmatrix}
+                        =
+                        \frac{1}{9}
+                        \begin{bmatrix}-27\\-18\end{bmatrix}
+                        =
+                        \begin{bmatrix}-3\\-2\end{bmatrix}
+                    \]
+                    This matches the expected output, so our change of basis is correct.
+                \end{solutioncheck}
+        \subsection{Part C}
+            Now we're after a way to go in reverse. We could be super diligent
+            and do the same process, but we can also just take the inverse of
+            $\mathbf{P}$.
+            \[
+                \mathbf{P}^{-1}
+                =
+                \begin{bmatrix}
+                    \frac{4}{9} & -\frac{1}{9} \\
+                    \frac{1}{9} & \frac{2}{9}
+                \end{bmatrix}
+            \]
+            \begin{solutioncheck}
+                Let's check this solution by multiplying $\mathbf{P}^{-1}$ by
+                another point in the red basis, and see if it maps to the correct point in the black basis.
+                \[
+                    \mathbf{P}^{-1}[\mathbf{v}_2]_{\mathbf{B}'}
+                    =
+                    \begin{bmatrix}
+                        2 & 1\\
+                        -1 & 4
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        1\\2
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                        4\\7
+                    \end{bmatrix}
+                    =
+                    [\mathbf{v}_2]_{\mathbf{B}}
+                \]
+                Again, seems the intuition is correct. For this point atleast,
+                it seems our change of basis is mapping back from black to red.
+            \end{solutioncheck}
+        \subsection{Part D}
+            Ok. I'm reading stretch so, eigenvalues, let's give things a name before we get going
+            \paragraph{Given}
+                \subparagraph{First line}
+                    We are given a stretch factor of $2$ corresponding to the line $y=-\frac{1}{2}x$
+                    So that gives us
+                    \[
+                        T(\begin{bmatrix}2\\-1\end{bmatrix})=\begin{bmatrix}4\\-2\end{bmatrix}
+                    \]
+                    Where we take $\lambda_1=2$ as the eigenvalue
+                \subparagraph{Second line}
+                    For the second we're given a stretch factor of $-1$ and a line $y=4x$. From this
+                    \[
+                        T(\begin{bmatrix}1\\4\end{bmatrix})=\begin{bmatrix}-1\\-4\end{bmatrix}
+                    \]
+                    Where we take $\lambda_2=-1$ as the eigenvalue
+
+
+\end{document}
