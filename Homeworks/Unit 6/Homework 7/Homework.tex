@@ -12,6 +12,10 @@
 \usetikzlibrary {positioning}
 \definecolor {processblue}{cmyk}{0.96,0,0,0}
 
+\usepackage[math]{cellspace}
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt} % needed for fractional matrices
+
 \usepackage{lipsum} % For dummy text
 \usepackage{cite} % For citations
 
@@ -152,6 +156,117 @@
                         T(\begin{bmatrix}1\\4\end{bmatrix})=\begin{bmatrix}-1\\-4\end{bmatrix}
                     \]
                     Where we take $\lambda_2=-1$ as the eigenvalue
-
+            \paragraph{Forming a system}
+                We know that we want a $2x2$ matrix, let's call it $\mathbf{F}$, such that
+                \[
+                    \mathbf{F}=\begin{bmatrix}a & b\\c & d\end{bmatrix}
+                \]
+                where
+                \begin{center}
+                \begin{minipage}{0.49\textwidth}
+                    \centering
+                    \[
+                        \mathbf{F}\begin{bmatrix}2\\-1\end{bmatrix}=\begin{bmatrix}4\\-2\end{bmatrix}
+                    \]
+                \end{minipage}\hfill
+                \begin{minipage}{0.49\textwidth}
+                    \centering
+                    \[ \mathbf{F}\begin{bmatrix}1\\4\end{bmatrix}=\begin{bmatrix}-1\\-4\end{bmatrix} \]
+                \end{minipage}
+                \end{center}
+                solving for $a$, $b$, $c$, and $d$ we get
+                \begin{align*}
+                    2a-b&=4\\
+                    2c-d&=-2\\
+                    a+4b&=-1\\
+                    c+4d&=-4
+                \end{align*}
+                which results $a=\frac{5}{3}$, $b=-\frac{2}{3}$, $c=-\frac{4}{3}$, and $d=-\frac{2}{3}$.
+                Giving us a final matrix of
+                \[
+                    \mathbf{F}=\begin{bmatrix}\frac{5}{3} & -\frac{2}{3} \\ \frac{4}{3} & -\frac{2}{3}\end{bmatrix}
+                    =
+                    \frac{1}{3}\begin{bmatrix}5 & -2 \\ 4 & -2\end{bmatrix}
+                \]
+            \paragraph{Mapping red to black}
+                \subparagraph{Given}
+                    \[
+                        [\mathbf{x}]_{\mathbf{r}}
+                        =
+                        \begin{bmatrix}
+                            1\\\frac{1}{2}    
+                        \end{bmatrix}
+                    \]
+                \subparagraph{Work}
+                    We need to first map this back to the standard basis, then apply our stretch,
+                    then map it back to the red basis. We can borrow our $\mathbf{P}$ from before
+                    \[
+                        \mathbf{P}[\mathbf{x}]_{\mathbf{r}}=
+                        \begin{bmatrix}
+                            \frac{4}{9} & -\frac{1}{9} \\
+                            \frac{1}{9} & \frac{2}{9}
+                        \end{bmatrix}
+                        \begin{bmatrix}
+                            1\\\frac{1}{2}
+                        \end{bmatrix}
+                        =
+                        \begin{bmatrix}
+                            \frac{7}{18}\\\frac{2}{9}
+                        \end{bmatrix}
+                        =
+                        [\mathbf{x}]_{\mathbf{e}}
+                    \]
+                    And applying our $\mathbf{F}$ stretch
+                    \[
+                        \mathbf{F}[\mathbf{x}]_{\mathbf{e}}=
+                        \frac{1}{3}\begin{bmatrix}5 & -2 \\ 4 & -2\end{bmatrix}
+                        \begin{bmatrix}
+                            \frac{7}{18}\\\frac{2}{9}
+                        \end{bmatrix}
+                        =
+                        \begin{bmatrix}
+                            \frac{1}{2}\\ \frac{10}{27}
+                        \end{bmatrix}
+                    \]
+                    The answer above is in the black basis.
+            \paragraph{Mapping black to red}
+                \subparagraph{Given}
+                    \[
+                        [\mathbf{x}]_{\mathbf{e}}
+                        =
+                        \begin{bmatrix}
+                            -3\\3
+                        \end{bmatrix}
+                    \]
+                    We want to apply our transformation, then represent our
+                    answer in the red basis.
+                \subparagraph{Work}
+                    Applying our $\mathbf{F}$ stretch
+                    \[
+                        \mathbf{F}[\mathbf{x}]_{\mathbf{e}}=
+                        \frac{1}{3}\begin{bmatrix}5 & -2 \\ 4 & -2\end{bmatrix}
+                        \begin{bmatrix}
+                            -3\\3
+                        \end{bmatrix}
+                        =
+                        \begin{bmatrix}
+                            -7\\-6
+                        \end{bmatrix}
+                    \]
+                    Now, back to the red basis, we borrow $P^{-1}$ from above
+                    \[
+                        \mathbf{P}^{-1}\mathbf{F}[\mathbf{x}]_{\mathbf{e}}=
+                        \begin{bmatrix}
+                            \frac{4}{9} & -\frac{1}{9} \\
+                            \frac{1}{9} & \frac{2}{9}
+                        \end{bmatrix}
+                        \begin{bmatrix}
+                            -7\\-6
+                        \end{bmatrix}
+                        =
+                        \begin{bmatrix}
+                            -\frac{22}{9}\\-\frac{19}{9}
+                        \end{bmatrix}
+                    \]
 
 \end{document}
