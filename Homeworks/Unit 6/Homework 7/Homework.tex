@@ -426,9 +426,11 @@
                 transformation that is similar to a diagonal matrix.
                 That was given in the handout as
                 \subparagraph{Definition}
-                    Two matrices $\mathbf{A},\,\mathbf{B}\,\in\mathbb{R}^{n\times{n}}$ are similar
+                    Two matrices $\mathbf{A},\,\mathbf{B}\,\in\mathbb{R}^{n\times{n}}$ 
+                    are similar
                     if $\exists\,\mathbf{C}\in\mathbb{R}^{n\times{n}}$ 
-                    where $\exists\,\mathbf{C}^{-1}$ such that
+                    where $\exists\,\mathbf{C}^{-1}$ 
+                    such that
                     \[
                         \mathbf{B}=\mathbf{C}^{-1}\mathbf{A}\mathbf{C}
                     \]
@@ -456,4 +458,51 @@
                         \begin{bmatrix}5 & 0\\0 & -2\end{bmatrix}
                     \]
                     Which is indeed a diagonal matrix.
+    \subsection{Question 4}
+        Ok. I went down a few rabbit holes before I got a grasp here.
+        The question is to explain why, that if the rows add up to a scalar k,
+        then k is an eigenvalue. This made so much more sense once I put together that
+        k is my stretch factor, and the vector of all ones is my eigenvector.
+        Problems I would have avoided by actually reading the entire question.
+        \paragraph{$\mathbf{A}\mathbf{v}_1$}
+            \[
+                \mathbf{A}\mathbf{v}_1
+                =
+                \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix}
+                \begin{bmatrix}
+                    1\\1
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    a+b\\
+                    c+d
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    k\\
+                    k
+                \end{bmatrix}
+            \]
+        \paragraph{$\lambda \mathbf{v}_1$}
+            \[
+                \lambda \mathbf{v}_1
+                =
+                k
+                \begin{bmatrix}
+                    1\\1
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    k\\
+                    k
+                \end{bmatrix}
+            \]
+        \paragraph{Conclusion}
+            As we can see above, $\mathbf{A}\mathbf{v}_1=\lambda \mathbf{v}_1$
+            where $\lambda=k$, so by definition k is an eigenvalue of $\mathbf{A}$.
+            This is the case as $\mathbf{A}\mathbf{v}_1$ 
+            should result in a stretch of $\mathbf{v}_1$ by the factor of k.
 \end{document}
