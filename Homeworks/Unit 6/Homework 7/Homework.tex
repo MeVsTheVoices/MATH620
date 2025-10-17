@@ -268,5 +268,92 @@
                             -\frac{22}{9}\\-\frac{19}{9}
                         \end{bmatrix}
                     \]
+    \section{Question 2}
+        Our boy Gauss is back, making our lives difficult again. We're keeping the modes of
+        transport we had originally as
+        \[
+            \beta
+            =\left\{
+                \begin{bmatrix}
+                    3\\1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    1\\2
+                \end{bmatrix}
+            \right\}
+        \]
+        And, as I would've guessed\dots changing basis.
+        \subsection{Part A}
+            \paragraph{Given}
+                For one old Uncle Cramer, we're given that in the standard basis
+                his house is located at 
+                $\left[\mathbf{w}_{\mathbf{e}}\right]=\begin{bmatrix}25\\71\end{bmatrix}$
+            \paragraph{Changing basis}
+                I want to clarify my understanding for a moment. Above is simply
+                analogous to saying that
+                \[
+                    \begin{bmatrix}1 & 0\\0 & 1\end{bmatrix}
+                    \begin{bmatrix}25\\71\end{bmatrix}
+                    =
+                    \begin{bmatrix}25\\71\end{bmatrix}
+                \]
+                And our desire to change basis forms a system like so
+                \[
+                    \begin{bmatrix}3 & 1 \\ 1 & 2\end{bmatrix}
+                    \begin{bmatrix}c_1\\c_2\end{bmatrix}
+                    =
+                    \begin{bmatrix}25\\71\end{bmatrix}
+                \]
+                Let $\mathbf{P}$ be formed from the columns of our transport basis.
+                It's inverse is then
+                \[
+                    \mathbf{P}^{-1}
+                    =
+                    \begin{bmatrix}3 & 1 \\ 1 & 2\end{bmatrix}^{-1}
+                    =
+                    \frac{1}{5}
+                    \begin{bmatrix}2 & -1 \\ -1 & 3\end{bmatrix}
+                \]
+                Lastly, applying our initial vector we get
+                \[
+                    \mathbf{P}^{-1}
+                    \left[\mathbf{w}\right]_{\mathbf{e}}
+                    =
+                    \left[\mathbf{w}\right]_{\beta}
+                    =
+                    \frac{1}{5}
+                    \begin{bmatrix}2 & -1 \\ -1 & 3\end{bmatrix}
+                    \begin{bmatrix}25\\71\end{bmatrix}
+                    =
+                    \frac{1}{5}
+                    \begin{bmatrix}-21\\188\end{bmatrix}
+                    =
+                    \begin{bmatrix}-\frac{21}{5}\\\frac{188}{5}\end{bmatrix}
+                \]
+                So, we'd travel $-\frac{21}{5}$ times by hoverboard, and $\frac{188}{5}$ times by magic carpet.
+                Not exactly satisfying, but, hey.
+        \subsection{Part B}
+            \paragraph{Given}
+                Now in reverse we're given the location of a museum expressed
+                in the transport basis as $\left[\mathbf{v}\right]_{\beta}=\begin{bmatrix}8\\3\end{bmatrix}$
+            \paragraph{Changing basis}
+                At the risk of turning one mistake in to two, this should be simply the inverse, ie. the original basis
+                times the vector in the transport basis.
+                \[
+                    \mathbf{P}\left[\mathbf{v}\right]_{\beta}
+                    =
+                    \left[\mathbf{v}\right]_{\mathbf{e}}
+                    =
+                    \begin{bmatrix}
+                        3 & 1 \\ 1 & 2
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                        8\\3
+                    \end{bmatrix}
+                    =
+                    \begin{bmatrix}
+                        27\\14
+                    \end{bmatrix}
+                \]
 
 \end{document}
