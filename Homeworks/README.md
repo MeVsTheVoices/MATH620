@@ -11,5 +11,5 @@ Starting to get in to the meat and potatos. A strict definition arising from exa
 An application. We're describing people moving between rooms by certain paths. Then coming up with general form and seeing how the nullspace arose from the solutions.
 ## Homework 6
 Really heavily in to the interrealtionships between rank, nullity, nullspace, column space, and row space. There's a few of these, along with an intro to rank one matrices, and another nullspace example taken from a graph.
-#Homework 7
+## Homework 7
 Eigenvectors and eignenvalues show up as a way of stretching. Lots of changes of bases. M
