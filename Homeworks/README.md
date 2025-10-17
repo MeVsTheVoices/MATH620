@@ -12,4 +12,4 @@ An application. We're describing people moving between rooms by certain paths. T
 ## Homework 6
 Really heavily in to the interrealtionships between rank, nullity, nullspace, column space, and row space. There's a few of these, along with an intro to rank one matrices, and another nullspace example taken from a graph.
 ## Homework 7
-Eigenvectors and eignenvalues show up as a way of stretching. Lots of changes of bases. M
+Eigenvectors and eignenvalues show up as a way of stretching. Lots of changes of bases. 
