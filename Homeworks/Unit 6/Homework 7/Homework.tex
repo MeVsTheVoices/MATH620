@@ -355,5 +355,105 @@
                         27\\14
                     \end{bmatrix}
                 \]
-
+    \section{Question 3}
+        \paragraph{Given}
+            \[
+                \mathbf{A}=
+                \begin{bmatrix}-3&4\\-2&6\end{bmatrix}
+            \]
+        \paragraph{Running the characteristic}
+            Gonna just do the work here, then answer the questions as they come along
+            we're gonna need the characteristic polynomial for the first two questions anyways
+        \subsection{Characteristic equation}
+            \[
+                \text{det}(\mathbf{A}-\lambda\mathbf{I}_2)=0
+                =
+                \begin{bmatrix}-3 & 4\\-2 & 6\end{bmatrix}
+                -
+                \begin{bmatrix}\lambda & 0\\0 & \lambda\end{bmatrix}
+                =
+                \begin{bmatrix}-3-\lambda & 4\\-2 & 6-\lambda\end{bmatrix}
+            \]
+            \[
+                \text{det}(\mathbf{A}-\lambda\mathbf{I}_2)=0
+                =
+                (-3-\lambda)(6-\lambda)+8
+                =
+                -\lambda^2-3\lambda-10
+            \]
+            So, take $\lambda_1=5$ and $\lambda_2=-2$\dots and back we go again for the eigenvectors.
+        \subsection{Finding eigenvectors}
+            \paragraph{For $\lambda_1=5$}
+                \[
+                    \mathbf{A}-5\mathbf{I}_2
+                    =
+                    \begin{bmatrix}-3 & 4\\-2 & 6\end{bmatrix}
+                    -
+                    \begin{bmatrix}5 & 0\\0 & 5\end{bmatrix}
+                    =
+                    \begin{bmatrix}-3-5 & 4\\-2 & 6-5\end{bmatrix}
+                    =
+                    \begin{bmatrix}-8 & 4\\-2 & 1\end{bmatrix}
+                \]
+                Reducing this matrix gives us
+                \[
+                    \begin{bmatrix}1 & -\frac{1}{2}\\0 & 0\end{bmatrix}
+                \]
+                So we can take $\mathbf{v}_{1,1}=1$ and $\mathbf{v}_{1,2}=2$ 
+                giving us $\mathbf{v}_1=\begin{bmatrix}1\\2\end{bmatrix}$
+            \paragraph{For $\lambda_2=-2$}
+                Let's imagine, all that work, but with only slight changes.
+                Borrowing from my friend pen and paper, we get
+                $\mathbf{v}_2=\begin{bmatrix}4\\1\end{bmatrix}$
+        \subsection{Questions}
+            \paragraph{Part A}
+                The stretch factors are simply the eigenvalues we found above.
+                So, $\lambda_1=5$ and $\lambda_2=-2$. The stretch directions
+                are the eigenvectors we found above.
+                To relate this back to how we were presented this before,
+                the stretch directions can be thought of as forming the axis
+                along the lines $y=2x$ and $y=\frac{1}{4}x$ respectively.
+            \paragraph{Part B}
+                The eigenvalues are $\lambda_1=5$ and $\lambda_2=-2$.
+                The eigenvectors are 
+                \[
+                    \mathbf{v}_1=\begin{bmatrix}1\\2\end{bmatrix}
+                    \,\text{and}\,
+                    \mathbf{v}_2=\begin{bmatrix}4\\1\end{bmatrix}
+                \]
+            \paragraph{Part C}
+                Alright, now for the tricky wicket. We want a similarity
+                transformation that is similar to a diagonal matrix.
+                That was given in the handout as
+                \subparagraph{Definition}
+                    Two matrices $\mathbf{A},\,\mathbf{B}\,\in\mathbb{R}^{n\times{n}}$ are similar
+                    if $\exists\,\mathbf{C}\in\mathbb{R}^{n\times{n}}$ 
+                    where $\exists\,\mathbf{C}^{-1}$ such that
+                    \[
+                        \mathbf{B}=\mathbf{C}^{-1}\mathbf{A}\mathbf{C}
+                    \]
+                \subparagraph{Work}
+                    We can take $\mathbf{C}=[\mathbf{v}_1\,\mathbf{v}_2]$ as the matrix,
+                    then find our inverse
+                    \[
+                        \mathbf{C}^{-1}
+                        =
+                        \begin{bmatrix}1 & 4\\2 & 1\end{bmatrix}^{-1}
+                        =
+                        \frac{1}{-7}
+                        \begin{bmatrix}1 & -4\\-2 & 1\end{bmatrix}
+                        =
+                        \begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\\frac{2}{7} & -\frac{1}{7}\end{bmatrix}
+                    \]
+                    then, plug and chug in to $\mathbf{B}=\mathbf{C}^{-1}\mathbf{A}\mathbf{C}$
+                    \[
+                        \mathbf{B}
+                        =
+                        \begin{bmatrix}-\frac{1}{7} & \frac{4}{7}\\\frac{2}{7} & -\frac{1}{7}\end{bmatrix}
+                        \begin{bmatrix}-3 & 4\\-2 & 6\end{bmatrix}
+                        \begin{bmatrix}1 & 4\\2 & 1\end{bmatrix}
+                        =
+                        \begin{bmatrix}5 & 0\\0 & -2\end{bmatrix}
+                    \]
+                    Which is indeed a diagonal matrix.
 \end{document}
