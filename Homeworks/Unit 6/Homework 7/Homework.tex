@@ -62,55 +62,32 @@
             Where I've denoted $\mathbf{B}$ as the black basis, and $\mathbf{B}'$ as the red.
             These taken together give us plenty of information to find a change of basis.
         \subsection{Part B}
-            The points above are of the form $[\mathbf{v}_n]_{\mathbf{B}}\, \rightarrow \,[\mathbf{v}_n]_{\mathbf{B}'}\, \forall{n}$.
-            So we can form a system mapping two columns of the first to that of the second.
-            \paragraph{The system}
-                Let $\mathbf{P}$ be the change of basis we're attempting to find.
+            Alright. I did all this backwards, I'm going to take the L and redo what needs to be.
+            I read these questions backwards, starting with red to black, 
+            and undoing my mistakes would be a mess, so, from scratch
                 \[
-                    \mathbf{P}\begin{bmatrix}1 & 4\\4 & 7\end{bmatrix}
-                    =
+                    \begin{bmatrix}a & b\\c & d\end{bmatrix}
                     \begin{bmatrix}0 & 1\\1 & 2\end{bmatrix}
+                    =
+                    \begin{bmatrix}1 & 4\\4 & 7\end{bmatrix}
                 \]
-                We need to clear out the left hand side, so take the matrix besides $\mathbf{P}$
-                as $\mathbf{A}$, and find the inverse. As $\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}_2$
-                \[
-                    \mathbf{P}=
-                    \begin{bmatrix}0 & 1\\1 & 2\end{bmatrix}
-                    \begin{bmatrix}1 & 4\\4 & 7\end{bmatrix}^{-1}
-                    =
-                    \begin{bmatrix}0 & 1\\1 & 2\end{bmatrix}
-                    \frac{1}{9}
-                    \begin{bmatrix}7 & -4\\-4 & 1\end{bmatrix}
-                    =
-                    \frac{1}{9}
-                    \begin{bmatrix}4 & -1\\1 & 2\end{bmatrix}
-                \]
+                Where I've combined the first couple points into a system to solve for, to be brief
+                we find $a=2$, $b=1$, $c=-1$, and $d=4$
                 \begin{solutioncheck}
-                    Let's check this solution by multiplying $\mathbf{P}$ by another point
-                    in the original basis, and see if it maps to the correct point in the new basis.
+                    And again, here we go, let's double check
                     \[
-                        \mathbf{P}\begin{bmatrix}-8\\-5\end{bmatrix}
+                        \begin{bmatrix}2 & 1\\-1 & 4\end{bmatrix}
+                        \begin{bmatrix}0\\1\end{bmatrix}
                         =
-                        \frac{1}{9}
-                        \begin{bmatrix}4 & -1\\1 & 2\end{bmatrix}
-                        \begin{bmatrix}-8\\-5\end{bmatrix}
-                        =
-                        \frac{1}{9}
-                        \begin{bmatrix}-32 + 5\\-8 - 10\end{bmatrix}
-                        =
-                        \frac{1}{9}
-                        \begin{bmatrix}-27\\-18\end{bmatrix}
-                        =
-                        \begin{bmatrix}-3\\-2\end{bmatrix}
+                        \begin{bmatrix}1\\4\end{bmatrix}
                     \]
-                    This matches the expected output, so our change of basis is correct.
+                    Cool, call this $\mathbf{P}$
                 \end{solutioncheck}
         \subsection{Part C}
-            Now we're after a way to go in reverse. We could be super diligent
-            and do the same process, but we can also just take the inverse of
-            $\mathbf{P}$.
+            We know from examination in class that we can just take the inverse of the initial
+            matrix to go the other way, so, $\mathbf{Q}=\mathbf{P}^{-1}$
             \[
-                \mathbf{P}^{-1}
+                \mathbf{Q}=\mathbf{P}^{-1}
                 =
                 \begin{bmatrix}
                     \frac{4}{9} & -\frac{1}{9} \\
@@ -118,27 +95,17 @@
                 \end{bmatrix}
             \]
             \begin{solutioncheck}
-                Let's check this solution by multiplying $\mathbf{P}^{-1}$ by
-                another point in the red basis, and see if it maps to the correct point in the black basis.
+                We should expect that $(0,1)$ should map to $(1,4)$
                 \[
-                    \mathbf{P}^{-1}[\mathbf{v}_2]_{\mathbf{B}'}
+                    \mathbf{Q}\begin{bmatrix}1\\4\end{bmatrix}
                     =
                     \begin{bmatrix}
-                        2 & 1\\
-                        -1 & 4
-                    \end{bmatrix}
-                    \begin{bmatrix}
-                        1\\2
+                        \frac{4}{9} & -\frac{1}{9} \\
+                        \frac{1}{9} & \frac{2}{9}
                     \end{bmatrix}
                     =
-                    \begin{bmatrix}
-                        4\\7
-                    \end{bmatrix}
-                    =
-                    [\mathbf{v}_2]_{\mathbf{B}}
+                    \begin{bmatrix}0\\1\end{bmatrix}
                 \]
-                Again, seems the intuition is correct. For this point atleast,
-                it seems our change of basis is mapping back from black to red.
             \end{solutioncheck}
         \subsection{Part D}
             Ok. I'm reading stretch so, eigenvalues, let's give things a name before we get going
