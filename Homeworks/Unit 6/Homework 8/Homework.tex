@@ -193,7 +193,7 @@
                 So, geometrically, \textbf{if} a point lies on one of the lines
                 defined by the eigenvectors, then when the transformation is applied,
                 the point will be scaled by the corresponding eigenvalue. 
-                Also, \textbf{if} a point does not lie along a line, it will be stretched
+                Also, \textbf{if} a point does not lie along a plane, it will be stretched
                 by some combination of the eigenvalues in the directions of the eigenvectors.
                 \subparagraph{Quick example}
                     We know that the point
@@ -202,7 +202,7 @@
                         =
                         \begin{bmatrix}3\\-9\\9\end{bmatrix}
                     \]
-                    lies along the line defined by $\mathbf{v}_1$.
+                    lies along the plane defined by $\mathbf{v}_1$.
                     Applying the transformation, we get
                     \[
                         \mathbf{A}
@@ -219,6 +219,118 @@
                         \lambda_1
                         \begin{bmatrix}3\\-9\\9\end{bmatrix}
                     \]
-                    So, taking a point along that line, we see that it is scaled
-                    by $\lambda_1=4$ as expected.
+                    So, taking a point along that plane, we see that it is scaled
+                    by $\lambda_1=4$ as expected. We could explore this a little further,
+                    but it's going to come up again later, so, I'll save that for then.
+    \section{Question 3}
+        \subsection{Statement}
+            Ok, we're back at it, 
+            but this time we're given a tranformation 
+            $T\,:\,\mathbb{R}^3\rightarrow\mathbb{R}^3$
+            that stretches
+            \[
+                \frac{1}{4}\:\text{in}\:\begin{bmatrix}-1\\0\\2\end{bmatrix}
+                ,\:
+                -3\:\text{in}\:\begin{bmatrix}0\\-1\\5\end{bmatrix}
+                ,\:
+                -3\:\text{in}\:\begin{bmatrix}1\\-1\\9\end{bmatrix}
+            \]
+            We can take these as eigenvalues and eigenvectors
+            \begin{align*}
+                \lambda_1=\frac{1}{4}, \mathbf{v}_1=\begin{bmatrix}-1\\0\\2\end{bmatrix}; \quad
+                \lambda_2=-3, \mathbf{v}_2=\begin{bmatrix}0\\-1\\5\end{bmatrix}; \quad
+                \lambda_3=-3, \mathbf{v}_3=\begin{bmatrix}1\\-1\\9\end{bmatrix}
+            \end{align*}
+        \subsection{Question by parts}
+            \paragraph{Part A}
+                We want to find why the vector
+                \[
+                    \text{let}\:\mathbf{A}=\begin{bmatrix}3\\-5\\37\end{bmatrix}
+                \]
+                stretches by a factor of $-3$.
+                \subparagraph{Work}
+                    We can express $\mathbf{A}$ as a linear combination
+                    of the eigenvectors.
+                    \[
+                        \begin{bmatrix}3\\-5\\37\end{bmatrix}
+                        =
+                        c_1\begin{bmatrix}-1\\0\\2\end{bmatrix}
+                        +
+                        c_2\begin{bmatrix}0\\-1\\5\end{bmatrix}
+                        +
+                        c_3\begin{bmatrix}1\\-1\\9\end{bmatrix}
+                    \]
+                    Solving this system, we find that
+                    \[
+                        c_1=0, c_2=2, c_3=3
+                    \]
+                    So, we can see that
+                    \[
+                        \mathbf{A}
+                        =
+                        0\begin{bmatrix}-1\\0\\2\end{bmatrix}
+                        +
+                        2\begin{bmatrix}0\\-1\\5\end{bmatrix}
+                        +
+                        3\begin{bmatrix}1\\-1\\9\end{bmatrix}
+                    \]
+                \subparagraph{Solution}
+                    Because $\mathbf{A}$ is a linear combination of two
+                    eigenvectors that have the same eigenvalue $\lambda_2=\lambda_3=-3$,
+                    when the transformation is applied, both components will
+                    be scaled by $-3$, resulting in the entire vector being scaled
+                    by $-3$.
+            \paragraph{Part B}
+                Again, without finding the actual transformation, we're going to do this
+                three more times. We follow the same methodology as above,
+                solving the same system of equations, but with the given vector
+                as the augment.
+                \subparagraph{Subpart i}
+                    \[
+                        \text{given}\:\mathbf{A}=\begin{bmatrix}3\\0\\6\end{bmatrix}
+                        \rightarrow
+                        \begin{bmatrix}1&0&0&-3\\0&1&0&0\\0&0&1&0\end{bmatrix}
+                    \]
+                    So, we can express the given vector as lying on the plane of $\mathbf{v}_1$.
+                    Given such, we know that it stretches by $\frac{1}{4}$.
+                \subparagraph{Subpart ii}
+                    \[
+                        \text{given}\:\mathbf{A}=
+                        \begin{bmatrix}\frac{1}{2}\\-\frac{1}{2}\\\frac{9}{2}\end{bmatrix}
+                        \rightarrow
+                        \begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&1&\frac{1}{2}\end{bmatrix}
+                    \]
+                    So, we can express the given vector as lying on the plane of $\mathbf{v}_3$.
+                    Given such, we know that it stretches by $-3$.
+                \subparagraph{Subpart iii}
+                    \[
+                        \text{given}\:\mathbf{A}=
+                        \begin{bmatrix}-1\\0\\0\end{bmatrix}
+                        \rightarrow
+                        \begin{bmatrix}
+                            1&0&0&\frac{2}{3}\\
+                            0&1&0&\frac{1}{3}\\
+                            0&0&1&-\frac{1}{3}
+                        \end{bmatrix}
+                    \]
+                    This is the tricky one. Because we need to combine the spans of the
+                    eigenvectors to reach the point, it scales as a combination of the three.
+                    We can represent this like so
+                    \[
+                        \mathbf{A}
+                        =
+                        \frac{2}{3}\mathbf{v}_1
+                        +\frac{1}{3}\mathbf{v}_2
+                        -\frac{1}{3}\mathbf{v}_3
+                    \]
+                    Our current thinking is that it scales like this
+                    \[
+                        \lambda_1\frac{2}{3}\mathbf{v}_1
+                        -
+                        \lambda_2\frac{1}{3}\mathbf{v}_2
+                        +
+                        \lambda_3\frac{1}{3}\mathbf{v}_3
+                    \]
+                    But as to a perfectly clear picture as to what's going on,
+                    I'll leave this until class and hopefully clarify.
 \end{document}
