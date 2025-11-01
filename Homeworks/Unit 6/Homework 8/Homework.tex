@@ -1,0 +1,495 @@
+\documentclass{article}
+\usepackage{fancyhdr} % for pretty formatting
+\usepackage{amsmath} % for matrices
+\usepackage{amssymb} % for bold text
+\usepackage{pgfplots} % for graphs
+\usepackage{hyperref} % for hyperlinks
+\pgfplotsset{compat=1.18}
+\usepackage{enumitem} % for custom lists
+
+\usepackage{tikz}
+\usepackage[svgnames]{xcolor}
+\usetikzlibrary {positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+\usepackage[math]{cellspace}
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt} % needed for fractional matrices
+
+\usepackage{lipsum} % For dummy text
+\usepackage{cite} % For citations
+
+\pagestyle{fancy}  
+\fancyhf{} % Clear all header and footer fields
+
+\usepackage{tcolorbox} % Required for tcolorbox
+
+\newtcolorbox{solutioncheck}{
+    colback=green!10, % Background color
+    colframe=gray!50, % Frame color
+    boxsep=5pt, % Padding
+    arc=4pt, % Rounded corners
+    title=Checking solution, % Optional title for the aside
+    fonttitle=\bfseries, % Title font style
+} % for Asides
+
+\lhead{Joshua Dunne}
+\rhead{\thepage} % Displays the current page number 
+\lfoot{MATH620}
+\rfoot{Unit 6}
+\cfoot{Homework 8}
+
+\begin{document}
+    \section{Question 1}
+        \paragraph{Statement}
+            A linear transformation $\mathbf{T}$ transforms
+            \[
+                \begin{bmatrix}2\\1\end{bmatrix}
+                \,\text{to}\,
+                \begin{bmatrix}-1\\-5\end{bmatrix}
+                \quad\text{and}\quad
+                \begin{bmatrix}-3\\-2\end{bmatrix}
+                \,\text{to}\,
+                \begin{bmatrix}-15\\-10\end{bmatrix}.
+            \]
+            We're asked to find where a similar matrix is transformed to,
+            without calculating the linear transformation $\mathbf{A}$ explicitly.
+        \paragraph{Givens}
+            \[
+                \text{let}\quad\mathbf{u}=\begin{bmatrix}2\\1\end{bmatrix},\,
+                \mathbf{v}=\begin{bmatrix}-3\\-2\end{bmatrix},\,
+                \mathbf{w}=\begin{bmatrix}16\\10\end{bmatrix}
+            \]
+            We know from above that
+            \[
+                T(\mathbf{u})=\begin{bmatrix}-1\\-5\end{bmatrix}
+                \quad\text{and}\quad
+                T(\mathbf{v})=\begin{bmatrix}-15\\-10\end{bmatrix}
+            \]
+            We also know from previous investigation and work done in class that
+            the linear transformations exhibit the additive property
+            \[
+                T(c_1\mathbf{u}+c_2\mathbf{v})=c_1T(\mathbf{u})+c_2T(\mathbf{v})
+            \]
+        \paragraph{Work}
+            So, we can find the coefficients $c_1$ and $c_2$ such that
+            \[
+                \begin{bmatrix}16\\10\end{bmatrix}
+                =c_1\begin{bmatrix}2\\1\end{bmatrix}
+                +c_2\begin{bmatrix}-3\\-2\end{bmatrix}
+            \]
+            Using the usual methods, we get $c_1=2$ and $c_2=-4$.
+            We can then relate this back and see that
+            \[
+                T(\mathbf{w})=T(2\mathbf{u}+4\mathbf{v})
+                =2T(\mathbf{u})-4T(\mathbf{v})
+                =2\begin{bmatrix}-1\\-5\end{bmatrix}
+                -4\begin{bmatrix}-15\\-10\end{bmatrix}
+            \]
+        \paragraph{Solution}
+            Calculating the above, we get
+            \[
+                2\begin{bmatrix}-1\\-5\end{bmatrix}
+                -
+                4\begin{bmatrix}-15\\-10\end{bmatrix}
+                =
+                \begin{bmatrix}58\\30\end{bmatrix}
+            \]
+            So. Without finding the actual linear transformation,
+            we can use the properties of linear transformations to avoid 
+            actually calculating the transformation matrix. Though
+            to have had enough information to do this, we would have had to
+            known the images of two linearly independent vectors.
+    \section{Question 2}
+        \subsection{Statement}
+            Ok. This time we want the eigenvalues and eigenvectors
+            of the matrix. We then want to interpret what this means geometrically.
+        \subsection{Givens}
+            \[
+                \mathbf{A}=\begin{bmatrix}1 & 0 & 1\\0 & 4 & 0\\12 & 2 & 2\end{bmatrix}
+            \]
+        \subsection{Work}
+            We were given on of the eigenvalues, $\lambda_1=4$. Using this we
+            could have used division to find the others, but\dots
+            We can also just calculate the characteristic polynomial
+            using a calculator and factor back.
+            That's alot of terms to avoid making a mistake with.
+            \[
+                det(\mathbf{A}-\lambda\mathbf{I}_3)
+                =
+                (5-x)(x-4)(x+2)
+            \]
+            \paragraph{For $\lambda_1=4$}
+                \[
+                    \mathbf{A}-\lambda_1\mathbf{I}_3
+                    =
+                    \begin{bmatrix}-3 & 0 & 1\\0 & 0 & 0\\12 & 2 & -2\end{bmatrix}
+                    \rightarrow
+                    \begin{bmatrix}
+                        1 & 0 & -\frac{1}{3}\\0 & 1 & 1\\0 & 0 & 0
+                    \end{bmatrix}
+                \]
+                From this we take
+                \begin{align*}
+                    x_1-\frac{1}{3}x_3&=0\\
+                    x_2+x_3&=0
+                \end{align*}
+                We let $x_3=s$ as our free variable, let $s=3$, and find
+                \[
+                    \mathbf{v}_1
+                    =
+                    \begin{bmatrix}1\\-3\\3\end{bmatrix}
+                \]
+            \paragraph{For $\lambda_2=5$}
+                \[
+                    \mathbf{A}-\lambda_1\mathbf{I}_3
+                    =
+                    \begin{bmatrix}-4 & 0 & 1\\0 & -1 & 0\\12 & 2 & -3\end{bmatrix}
+                    \rightarrow
+                    \begin{bmatrix}
+                        1 & 0 & -\frac{1}{4}\\0 & 1 & 0\\0 & 0 & 0
+                    \end{bmatrix}
+                \]
+                From this we take
+                \begin{align*}
+                    x_1-\frac{1}{4}x_3&=0\\
+                    x_2&=0
+                \end{align*}
+                We let $x_3=s$ as our free variable, let $s=4$, and find
+                \[
+                    \mathbf{v}_2
+                    =
+                    \begin{bmatrix}1\\0\\4\end{bmatrix}
+                \]
+            \paragraph{For $\lambda_3=-2$}
+                \[
+                    \mathbf{A}-\lambda_1\mathbf{I}_3
+                    =
+                    \begin{bmatrix}3 & 0 & 1\\0 & 6 & 0\\12 & 2 & 4\end{bmatrix}
+                    \rightarrow
+                    \begin{bmatrix}
+                        1 & 0 & \frac{1}{3}\\0 & 1 & 0\\0 & 0 & 0
+                    \end{bmatrix}
+                \]
+                From this we take
+                \begin{align*}
+                    x_1+\frac{1}{3}x_3&=0\\
+                    x_2&=0
+                \end{align*}
+                We let $x_3=s$ as our free variable, let $s=3$, and find
+                \[
+                    \mathbf{v}_3
+                    =
+                    \begin{bmatrix}1\\0\\-3\end{bmatrix}
+                \]
+        \subsection{Solution}
+            So, we have the eigenvalues and eigenvectors as follows:
+            \begin{align*}
+                \lambda_1=4, \mathbf{v}_1=\begin{bmatrix}1\\-3\\3\end{bmatrix}; \quad
+                \lambda_2=5, \mathbf{v}_2=\begin{bmatrix}1\\0\\4\end{bmatrix}; \quad
+                \lambda_3=-2, \mathbf{v}_3=\begin{bmatrix}1\\0\\-3\end{bmatrix}
+            \end{align*}
+            \paragraph{Interpretation}
+                So, geometrically, \textbf{if} a point lies on one of the lines
+                defined by the eigenvectors, then when the transformation is applied,
+                the point will be scaled by the corresponding eigenvalue. 
+                Also, \textbf{if} a point does not lie along a plane, it will be stretched
+                by some combination of the eigenvalues in the directions of the eigenvectors.
+                \subparagraph{Quick example}
+                    We know that the point
+                    \[
+                        3\begin{bmatrix}1\\-3\\3\end{bmatrix}
+                        =
+                        \begin{bmatrix}3\\-9\\9\end{bmatrix}
+                    \]
+                    lies along the plane defined by $\mathbf{v}_1$.
+                    Applying the transformation, we get
+                    \[
+                        \mathbf{A}
+                        \begin{bmatrix}3\\-9\\9\end{bmatrix}
+                        =
+                        3\mathbf{A}
+                        \begin{bmatrix}1\\-3\\3\end{bmatrix}
+                        =
+                        3\cdot4
+                        \begin{bmatrix}1\\-3\\3\end{bmatrix}
+                        =
+                        \begin{bmatrix}12\\-36\\36\end{bmatrix}
+                        =
+                        \lambda_1
+                        \begin{bmatrix}3\\-9\\9\end{bmatrix}
+                    \]
+                    So, taking a point along that plane, we see that it is scaled
+                    by $\lambda_1=4$ as expected. We could explore this a little further,
+                    but it's going to come up again later, so, I'll save that for then.
+    \section{Question 3}
+        \subsection{Statement}
+            Ok, we're back at it, 
+            but this time we're given a tranformation 
+            $T\,:\,\mathbb{R}^3\rightarrow\mathbb{R}^3$
+            that stretches
+            \[
+                \frac{1}{4}\:\text{in}\:\begin{bmatrix}-1\\0\\2\end{bmatrix}
+                ,\:
+                -3\:\text{in}\:\begin{bmatrix}0\\-1\\5\end{bmatrix}
+                ,\:
+                -3\:\text{in}\:\begin{bmatrix}1\\-1\\9\end{bmatrix}
+            \]
+            We can take these as eigenvalues and eigenvectors
+            \begin{align*}
+                \lambda_1=\frac{1}{4}, \mathbf{v}_1=\begin{bmatrix}-1\\0\\2\end{bmatrix}; \quad
+                \lambda_2=-3, \mathbf{v}_2=\begin{bmatrix}0\\-1\\5\end{bmatrix}; \quad
+                \lambda_3=-3, \mathbf{v}_3=\begin{bmatrix}1\\-1\\9\end{bmatrix}
+            \end{align*}
+        \subsection{Question by parts}
+            \paragraph{Part A}
+                We want to find why the vector
+                \[
+                    \text{let}\:\mathbf{A}=\begin{bmatrix}3\\-5\\37\end{bmatrix}
+                \]
+                stretches by a factor of $-3$.
+                \subparagraph{Work}
+                    We can express $\mathbf{A}$ as a linear combination
+                    of the eigenvectors.
+                    \[
+                        \begin{bmatrix}3\\-5\\37\end{bmatrix}
+                        =
+                        c_1\begin{bmatrix}-1\\0\\2\end{bmatrix}
+                        +
+                        c_2\begin{bmatrix}0\\-1\\5\end{bmatrix}
+                        +
+                        c_3\begin{bmatrix}1\\-1\\9\end{bmatrix}
+                    \]
+                    Solving this system, we find that
+                    \[
+                        c_1=0, c_2=2, c_3=3
+                    \]
+                    So, we can see that
+                    \[
+                        \mathbf{A}
+                        =
+                        0\begin{bmatrix}-1\\0\\2\end{bmatrix}
+                        +
+                        2\begin{bmatrix}0\\-1\\5\end{bmatrix}
+                        +
+                        3\begin{bmatrix}1\\-1\\9\end{bmatrix}
+                    \]
+                \subparagraph{Solution}
+                    Because $\mathbf{A}$ is a linear combination of two
+                    eigenvectors that have the same eigenvalue $\lambda_2=\lambda_3=-3$,
+                    when the transformation is applied, both components will
+                    be scaled by $-3$, resulting in the entire vector being scaled
+                    by $-3$.
+            \paragraph{Part B}
+                Again, without finding the actual transformation, we're going to do this
+                three more times. We follow the same methodology as above,
+                solving the same system of equations, but with the given vector
+                as the augment.
+                \subparagraph{Subpart i}
+                    \[
+                        \text{given}\:\mathbf{A}=\begin{bmatrix}3\\0\\6\end{bmatrix}
+                        \rightarrow
+                        \begin{bmatrix}1&0&0&-3\\0&1&0&0\\0&0&1&0\end{bmatrix}
+                    \]
+                    So, we can express the given vector as lying on the plane of $\mathbf{v}_1$.
+                    Given such, we know that it stretches by $\frac{1}{4}$.
+                \subparagraph{Subpart ii}
+                    \[
+                        \text{given}\:\mathbf{A}=
+                        \begin{bmatrix}\frac{1}{2}\\-\frac{1}{2}\\\frac{9}{2}\end{bmatrix}
+                        \rightarrow
+                        \begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&1&\frac{1}{2}\end{bmatrix}
+                    \]
+                    So, we can express the given vector as lying on the plane of $\mathbf{v}_3$.
+                    Given such, we know that it stretches by $-3$.
+                \subparagraph{Subpart iii}
+                    \[
+                        \text{given}\:\mathbf{A}=
+                        \begin{bmatrix}-1\\0\\0\end{bmatrix}
+                        \rightarrow
+                        \begin{bmatrix}
+                            1&0&0&\frac{2}{3}\\
+                            0&1&0&\frac{1}{3}\\
+                            0&0&1&-\frac{1}{3}
+                        \end{bmatrix}
+                    \]
+                    This is the tricky one. Because we need to combine the spans of the
+                    eigenvectors to reach the point, it scales as a combination of the three.
+                    We can represent this like so
+                    \[
+                        \mathbf{A}
+                        =
+                        \frac{2}{3}\mathbf{v}_1
+                        +\frac{1}{3}\mathbf{v}_2
+                        -\frac{1}{3}\mathbf{v}_3
+                    \]
+                    Our current thinking is that it scales like this
+                    \[
+                        \lambda_1\frac{2}{3}\mathbf{v}_1
+                        -
+                        \lambda_2\frac{1}{3}\mathbf{v}_2
+                        +
+                        \lambda_3\frac{1}{3}\mathbf{v}_3
+                    \]
+                    But as to a perfectly clear picture as to what's going on,
+                    I'll leave this until class and hopefully clarify.
+    \section{Question 4}
+        \subsection{Statement}
+            \paragraph{Theorem}
+                A $n\times n$ matrix $\mathbf{A}$ is diagonizable if and only if
+                $\mathbf{A}$ has $n$ linearly independent eigenvectors.
+            We're looking for a $2\times 2$ matrix that is invertible, 
+            but not diagonizable,
+            and a $2\times 2$ \textbf{non-diagonal} matrix that is diagonizable,
+            but not invertible.
+            \paragraph{Simplification}
+                I distilled this down a bit to make checking a little easier.
+                For invertibility I was looking for $det(\mathbf{A})=ad-bc\ne 0$
+                For diagonizable I was looking for $\mathbf{v}_1 \ne \mathbf{v}_2$
+                More specifically, I was looking for $\mathbf{v}_1 \ne c\mathbf{v}_2$
+                where $c\in{\mathbb{R}}$. As this is simply a restatement of the theorem above.
+            \paragraph{Subpart A}
+                Ok, here we're looking for invertible not diagonizable, doesn't have to be a diagonal.
+                We started more generally, but a simple example is
+                \[
+                    \mathbf{A}=\begin{bmatrix}1&1\\0&1\end{bmatrix}
+                \]
+                Invertibility is easy, it's trivial to see that $det(\mathbf{A}=1\ne 0)$
+                It's an upper triangular, so, the eigenvalues are just those in the diagonal.
+                If we use those to get the eigenvectors, we get\dots obviously, 
+                \[
+                    \mathbf{v}_1=\mathbf{v}_2=c\mathbf{v}_2
+                \]
+                Which is a no go, per the theorem we need them to be nonscalar non\dots multiples?
+            \paragraph{Subpart B}
+                Alright, the other way. We want a \textbf{non-diagonal} matrix that
+                \textbf{is} diagonizable, but that is \textbf{not} invertible.
+                We (Jack and I) settled on\dots
+                \[
+                    \mathbf{A}=\begin{bmatrix}1&-1\\-1&1\end{bmatrix}
+                \]
+                Alright, so, the determinant is $det(\mathbf{A})=1---1=1-1=0$. So this puppy
+                definitely isn't invertible. If we plug and chug for the eigens
+                \begin{align*}
+                    \text{for}\;\lambda_1=&2\,:\,\mathbf{v}_{1,1}=-\mathbf{v}_{1,2}\\
+                    \text{for}\;\lambda_2=&0\,:\,\mathbf{v}_{2,1}=\mathbf{v}_{2,2}\\
+                    \mathbf{v}_1=&\begin{bmatrix}-1\\1\end{bmatrix}\\
+                    \mathbf{v}_2=&\begin{bmatrix}1\\1\end{bmatrix}
+                \end{align*}
+                From this we can double check that it actually diagonalizes
+                \[
+                    \mathbf{A}\stackrel{?}{=}
+                    \mathbf{P}\mathbf{D}\mathbf{P}^{-1}
+                    =
+                    \begin{bmatrix}-1&1\\1&1\end{bmatrix}
+                    \begin{bmatrix}2&0\\0&0\end{bmatrix}
+                    \begin{bmatrix}-1/2&1/2\\1/2&1/2\end{bmatrix}
+                    =
+                    \begin{bmatrix}1&-1\\-1&1\end{bmatrix}
+                    =
+                    \mathbf{A}
+                \]
+                QED et cetera.
+    \section{Question 5}
+        \subsection{Statement}
+            We're back with the Markov chains! Alright, let's make our matrix and run through
+        \subsection{Subpart A}
+            We're attempting to find the transition matrix, the data is given in the same order.
+            We're filling slots, keeping in mind that our columns should always add up to $1$
+            \paragraph{Transition matrix}
+                \[
+                    \mathbf{A}
+                    =
+                    \begin{bmatrix}.6&.1&.2\\.2&.7&.4\\.2&.2&.4\end{bmatrix}
+                \]
+        \subsection{Subpart B}
+            Alright, now we want the probability that a short person will have tall grandchilden.
+            I almost you-knowed the goose here and took $\mathbf{A}^3$, but, alas, this should just be the
+            corresponding entry in $\mathbf{A}^2$
+            \[
+                \mathbf{A}^2
+                =
+                \begin{bmatrix}.42&.17&.24\\.34&.59&.40\\.24&.24&.28\end{bmatrix}
+            \]
+            where the entry in the top right, $\mathbf{A}^2_{1,3}=.24\,$ should correspond
+            to the probability of\dots a short person having a tall grandchild.
+        \subsection{Subpart C}
+            Alright, we're given some numbers here, that I really don't care about\dots
+            we could do the diagonalization, but there's no need, steady state don't given
+            two hoots about initial conditions with Markov Chains.
+            \[
+                (\mathbf{I}-\mathbf{A})\mathbf{x}=\mathbf{0}
+                \rightarrow
+                \begin{bmatrix}1&0&-1&0\\0&1&-2&0\\0&0&0&0\end{bmatrix}
+            \]
+            \begin{align*}
+                x_1-x_3=0\\
+                x_2-2x_3=0\\
+            \end{align*}
+            From this we get a vector of form $\langle1, 2, 1\rangle$.
+            If we go ahead and normalize it, we get $\langle\frac{1}{4}, \frac{1}{2}, \frac{1}{4}\rangle$.
+            So, given a million billion generations we'd expect to see twice as many medium height people
+            as there are short or tall people\dots that passes a quick intuition check.
+    \section{Question 6}
+        \subsection{Statement}
+            Alright, now for the doozey. We're going to need a $3\times 3$ to get this one.
+            So, given $x_0=4$, $x_1=3$, and $x_2=42$, we're going to create and parameterize
+            the recurrance relation as an explicit formula. We're looking for
+            $2x_{n-1}+19x_{n-2}-20x_{n-3}=x_n$
+            I like to think of this as
+            \[
+                \begin{bmatrix}
+                    p_{1,1}&p_{1,2}&p_{1,3}\\
+                    p_{2,1}&p_{2,2}&p_{2,3}\\
+                    p_{3,1}&p_{3,2}&p_{3,3}
+                \end{bmatrix}
+                \begin{bmatrix}x_{n-1}\\x_{n-2}\\x_{n-3}\end{bmatrix}
+                =
+                \begin{bmatrix}x_{n}\\x_{n-1}\\x_{n-2}\end{bmatrix}
+            \]
+            We can fill in values and expand this out
+            \begin{align*}
+                2x_{n-1}+19x_{n-2}-20x_{n-3}&=x_{n}\\
+                x_{n-1}&=x_{n-1}\\
+                x_{n-2}&=x_{n-2}
+            \end{align*}
+            Where we've chosen $p_{2,1}=1$ and $p_{3,2}=1$ to match coefficients
+        \subsection{Work}
+            Alright, before I get myself in trouble and do too much thinking, let's
+            just find the eigenvalues and corresponding eigenvectors.
+            \begin{align*}
+                \text{for}\;\lambda_1=5\,: &\quad x_{n-1}-25x_{n-3} && x_{n-2}-5x_{n-3} \\
+                \text{for}\;\lambda_2=-4\,: &\quad x_{n-1}-16x_{n-3} && x_{n-2}+4x_{n-3} \\
+                \text{for}\;\lambda_3=1\,:  &\quad x_{n-1}-x_{n-3}   && x_{n-2}-x_{n-3}
+            \end{align*}
+            Choosing $x_3=1$ as our free variable for all, we get
+            \begin{align*}
+                \mathbf{v}_1=\begin{bmatrix}25\\5\\1\end{bmatrix} &&
+                \mathbf{v}_1=\begin{bmatrix}16\\-4\\1\end{bmatrix} &&
+                \mathbf{v}_1=\begin{bmatrix}1\\1\\1\end{bmatrix}
+            \end{align*}
+            We can put all this together in diagonalization, including our initial conditions
+            \[
+                \begin{bmatrix}1&25&16\\1&5&-4\\1&1&1\end{bmatrix}
+                \begin{bmatrix}1&0&0\\0&5^{n-3}&0\\0&0&(-4)^{n-3}\end{bmatrix}
+                \begin{bmatrix}1&25&16\\1&5&-4\\1&1&1\end{bmatrix}^{-1}
+                \begin{bmatrix}63\\43\\3\end{bmatrix}
+            \]
+            Then let symbolab fly and drop the bottom two rows, as we're concerned with the
+            relation based on $x_n$
+            \[
+                5^{n}+2-64(-4)^{n-3}
+            \]
+            \begin{solutioncheck}
+                Alright, it looks a little ugly because Symbolab was a little overhelpful
+                and simplified this, let's drop the three fours
+                \begin{align*}
+                    x_n&=5^{n}+2+(-4)^{n}\\
+                    x_0&=4\\
+                    x_1&=3\\
+                    x_2&=43\\
+                    x_3&=63
+                \end{align*}
+                Tada! Until next time, good afternoon, good evening, and good night.
+            \end{solutioncheck}
+\end{document}
