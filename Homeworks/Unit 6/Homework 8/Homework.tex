@@ -430,4 +430,66 @@
             If we go ahead and normalize it, we get $\langle\frac{1}{4}, \frac{1}{2}, \frac{1}{4}\rangle$.
             So, given a million billion generations we'd expect to see twice as many medium height people
             as there are short or tall people\dots that passes a quick intuition check.
+    \section{Question 6}
+        \subsection{Statement}
+            Alright, now for the doozey. We're going to need a $3\times 3$ to get this one.
+            So, given $x_0=4$, $x_1=3$, and $x_2=42$, we're going to create and parameterize
+            the recurrance relation as an explicit formula. We're looking for
+            $2x_{n-1}+19x_{n-2}-20x_{n-3}=x_n$
+            I like to think of this as
+            \[
+                \begin{bmatrix}
+                    p_{1,1}&p_{1,2}&p_{1,3}\\
+                    p_{2,1}&p_{2,2}&p_{2,3}\\
+                    p_{3,1}&p_{3,2}&p_{3,3}
+                \end{bmatrix}
+                \begin{bmatrix}x_{n-1}\\x_{n-2}\\x_{n-3}\end{bmatrix}
+                =
+                \begin{bmatrix}x_{n}\\x_{n-1}\\x_{n-2}\end{bmatrix}
+            \]
+            We can fill in values and expand this out
+            \begin{align*}
+                2x_{n-1}+19x_{n-2}-20x_{n-3}&=x_{n}\\
+                x_{n-1}&=x_{n-1}\\
+                x_{n-2}&=x_{n-2}
+            \end{align*}
+            Where we've chosen $p_{2,1}=1$ and $p_{3,2}=1$ to match coefficients
+        \subsection{Work}
+            Alright, before I get myself in trouble and do too much thinking, let's
+            just find the eigenvalues and corresponding eigenvectors.
+            \begin{align*}
+                \text{for}\;\lambda_1=5\,: &\quad x_{n-1}-25x_{n-3} && x_{n-2}-5x_{n-3} \\
+                \text{for}\;\lambda_2=-4\,: &\quad x_{n-1}-16x_{n-3} && x_{n-2}+4x_{n-3} \\
+                \text{for}\;\lambda_3=1\,:  &\quad x_{n-1}-x_{n-3}   && x_{n-2}-x_{n-3}
+            \end{align*}
+            Choosing $x_3=1$ as our free variable for all, we get
+            \begin{align*}
+                \mathbf{v}_1=\begin{bmatrix}25\\5\\1\end{bmatrix} &&
+                \mathbf{v}_1=\begin{bmatrix}16\\-4\\1\end{bmatrix} &&
+                \mathbf{v}_1=\begin{bmatrix}1\\1\\1\end{bmatrix}
+            \end{align*}
+            We can put all this together in diagonalization, including our initial conditions
+            \[
+                \begin{bmatrix}1&25&16\\1&5&-4\\1&1&1\end{bmatrix}
+                \begin{bmatrix}1&0&0\\0&5^{n-3}&0\\0&0&(-4)^{n-3}\end{bmatrix}
+                \begin{bmatrix}1&25&16\\1&5&-4\\1&1&1\end{bmatrix}^{-1}
+                \begin{bmatrix}63\\43\\3\end{bmatrix}
+            \]
+            Then let symbolab fly and drop the bottom two rows, as we're concerned with the
+            relation based on $x_n$
+            \[
+                5^{n}+2-64(-4)^{n-3}
+            \]
+            \begin{solutioncheck}
+                Alright, it looks a little ugly because Symbolab was a little overhelpful
+                and simplified this, let's drop the three fours
+                \begin{align*}
+                    x_n&=5^{n}+2+(-4)^{n}\\
+                    x_0&=4\\
+                    x_1&=3\\
+                    x_2&=43\\
+                    x_3&=63
+                \end{align*}
+                Tada! Until next time, good afternoon, good evening, and good night.
+            \end{solutioncheck}
 \end{document}
