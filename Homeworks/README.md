@@ -13,3 +13,11 @@ An application. We're describing people moving between rooms by certain paths. T
 Really heavily in to the interrealtionships between rank, nullity, nullspace, column space, and row space. There's a few of these, along with an intro to rank one matrices, and another nullspace example taken from a graph.
 ## Homework 7
 Eigenvectors and eignenvalues show up as a way of stretching. Lots of changes of bases. 
+## Homework 8
+More on eigenvectors and values, diagonilization, linear transformations
+## Homework 9
+Psuedoinverse, normal equations, invertibility, dominance of eigenvalue, idempotence
+## Homework 10 
+Fitting points with best fit, models on population growth, lots more on psuedoinverse, normal equations.
+## Homework 11
+Lots of modeling, populations growth, best fit lines for dissimilar conditions, norms.
